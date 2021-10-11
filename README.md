@@ -15,5 +15,6 @@ Anggota Kelompok
 7. Muhammad Halif - 2006473850
 
 [actions-badge]: https://github.com/laymonage/django-template-heroku/workflows/Test%20and%20Deploy/badge.svg
+[commits-gh]: https://github.com/laymonage/django-template-heroku/commits/master
 [pipeline-badge]: https://gitlab.com/laymonage/django-template-heroku/badges/master/pipeline.svg
 [coverage-badge]: https://gitlab.com/laymonage/django-template-heroku/badges/master/coverage.svg
