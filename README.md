@@ -13,3 +13,7 @@ Anggota Kelompok
 5. Markus Leonard Wijaya - 2006473913
 6. Adella Rakha Amadea - 2006463616
 7. Muhammad Halif - 2006473850
+
+[actions-badge]: https://github.com/laymonage/django-template-heroku/workflows/Test%20and%20Deploy/badge.svg
+[pipeline-badge]: https://gitlab.com/laymonage/django-template-heroku/badges/master/pipeline.svg
+[coverage-badge]: https://gitlab.com/laymonage/django-template-heroku/badges/master/coverage.svg
