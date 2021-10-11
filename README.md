@@ -18,3 +18,4 @@ Anggota Kelompok
 [commits-gh]: https://github.com/laymonage/django-template-heroku/commits/master
 [pipeline-badge]: https://gitlab.com/laymonage/django-template-heroku/badges/master/pipeline.svg
 [coverage-badge]: https://gitlab.com/laymonage/django-template-heroku/badges/master/coverage.svg
+[commits-gl]: https://gitlab.com/laymonage/django-template-heroku/-/commits/master
