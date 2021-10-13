@@ -21,18 +21,20 @@ Pada platform ini, pengguna diminta untuk mendaftar, sebagai murid atau pengajar
 Selain itu, aplikasi ini juga menyediakan fitur forum diskusi dan latihan soal. Forum diskusi adalah wadah bagi para murid untuk bertanya tentang materi yang kurang dipahami dan wadah bagi para pengajar untuk menganalisis materi yang membuat murid cukup kesulitan. Sedangkan latihan soal adalah wadah untuk murid dan pengajar mengukur kemampuan dan pemahaman murid terhadap materi yang telah diajarkan.
 
 Modul-modul di aplikasi 
-Pendaftaran Murid : murid mendaftar bimbingan belajar (murid dan admin)
-Pendaftaran Pengajar : pengajar mendaftar menjadi pengajar di bimbingan belajar (pengajar dan admin)
-Hasil pembelajaran : pengajar menginput hasil pembelajaran murid dan murid dapat melihat hasil pembelajaran tersebut. (murid dan pengajar)
-Jadwal : murid dapat melihat jadwal pembelajarannya. (murid dan pengajar)
-Bayar-Membayar : setelah mendaftar murid akan disuruh membayar (murid, pengajar, admin)
-Latihan Soal  : Pengajar akan memberikan latihan soal yang dapat diakses secara umum (murid dan pengajar)
-Forum Diskusi : Murid dapat bertanya atau mendiskusikan  materi atau soal yang kurang dipahami pada forum diskusi kepada pengajar atau murid lain.(murid dan guru).
+- Pendaftaran Murid : murid mendaftar bimbingan belajar (murid dan admin)
+- Pendaftaran Pengajar : pengajar mendaftar menjadi pengajar di bimbingan belajar (pengajar dan admin)
+- Hasil pembelajaran : pengajar menginput hasil pembelajaran murid dan murid dapat melihat hasil pembelajaran tersebut. (murid dan pengajar)
+- Jadwal : murid dapat melihat jadwal pembelajarannya. (murid dan pengajar)
+- Bayar-Membayar : setelah mendaftar murid akan disuruh membayar (murid, pengajar, admin)
+- Latihan Soal  : Pengajar akan memberikan latihan soal yang dapat diakses secara umum (murid dan pengajar)
+- Forum Diskusi : Murid dapat bertanya atau mendiskusikan  materi atau soal yang kurang dipahami pada forum diskusi kepada pengajar atau murid lain.(murid dan guru).
+
 
 Persona role
-Murid : murid yang mengikuti bimbingan belajar
-Pengajar : pengajar yang mengajar murid
-Admin bimbingan belajar
+- Murid : murid yang mengikuti bimbingan belajar
+- Pengajar : pengajar yang mengajar murid
+- Admin bimbingan belajar
+
 
 Dengan dibuatnya aplikasi ini, kami berharap dapat membantu para murid dalam memahami materi pembelajaran pada masa pembelajaran jarak jauh (PJJ). Selain itu, adanya pandemi covid-19 saat ini juga membawa dampak banyaknya karyawan yang di PHK dan juga pendapatan pekerja yang umumnya berkurang. Oleh karena itu, kami berharap dengan adanya aplikasi ini dapat memberi lapangan pekerjaan baru sebagai pengajar dalam membantu para murid atau dapat menjadi pekerjaan sampingan para pengajar.
 
