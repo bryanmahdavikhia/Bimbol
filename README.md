@@ -34,7 +34,7 @@ Murid : murid yang mengikuti bimbingan belajar
 Pengajar : pengajar yang mengajar murid
 Admin bimbingan belajar
 
-Dengan dibuatnya aplikasi ini, kami berharap dapat membantu para murid dalam memahami materi pembelajaran pada masa pembelajaran jarak jauh (PJJ). Selain itu, adanya pandemi covid-19 saat ini juga membawa dampak banyaknya karyawan yang di PHK dan juga pendapatan pekerja yang umumnya berkurang. Oleh karena itu, kami berharap dengan adanya aplikasi ini dapat memberi lapangan pekerjaan baru sebagai pengajar dalam membantu para murid atau sebagai pengajar.
+Dengan dibuatnya aplikasi ini, kami berharap dapat membantu para murid dalam memahami materi pembelajaran pada masa pembelajaran jarak jauh (PJJ). Selain itu, adanya pandemi covid-19 saat ini juga membawa dampak banyaknya karyawan yang di PHK dan juga pendapatan pekerja yang umumnya berkurang. Oleh karena itu, kami berharap dengan adanya aplikasi ini dapat memberi lapangan pekerjaan baru sebagai pengajar dalam membantu para murid atau dapat menjadi pekerjaan sampingan para pengajar.
 
 
 [actions-badge]: https://github.com/laymonage/django-template-heroku/workflows/Test%20and%20Deploy/badge.svg
