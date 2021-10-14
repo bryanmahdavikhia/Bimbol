@@ -18,20 +18,20 @@ Anggota Kelompok
 
 Di masa pandemi seperti ini, dengan terbatasnya pertemuan antara siswa dengan guru, maka secara otomatis kemampuan siswa dalam menerima materi pun akan terbatas. Berkurangnya intensitas pertemuan siswa dengan guru di sekolah serta sistem pembelajaran yang dilakukan secara jarak jauh menjadi kendala dalam pencapaian tujuan belajar.  Salah satu solusi yang dapat dilakukan yaitu dengan melakukan pendampingan belajar oleh orang tua di rumah. Namun, hal ini sulit dilakukan karena kebanyakan  orang tua memiliki kesibukan tersendiri. Maka dari itu, kebanyakan orang tua memilih untuk mendaftarkan anaknya untuk mengikuti les privat ataupun tutor agar dapat memahami materi dengan lebih baik. Namun, ditengah pandemi saat ini, tentu menjadi salah satu tantangan tersendiri bagi para orang tua dalam menemukan tutor yang tepat bagi anaknya. Begitupun sebaliknya, para tutor/pengajar juga kesulitan untuk mencari pekerjaan karena perlu adanya penyesuaian sistem atau platform untuk menerapkan kegiatan tutor secara online. Untuk menyelesaikan permasalahan tersebut, kami berpikir untuk membuat website yang dapat mempertemukan antara pengajar dengan siswa yang membutuhkan tutor melalui platform bimbel online dengan mudah. Aplikasi ini dapat membantu para siswa yang kesulitan dalam memahami materi pembelajaran serta mempertemukannya dengan tutor/pengajar yang juga sedang  mencari pekerjaan. 
 
-Pada platform ini, nantinya pengguna akan diminta untuk mendaftar, sebagai siswa atau pengajar. Setelah mendaftar, siswa akan memilih pengajar sesuai preferensi masing-masing. Ketika sudah menentukan pengajar yang diinginkan, siswa akan memilih slot jadwal pembelajaran sesuai waktu yang tersedia. Selain itu, aplikasi ini juga menyediakan fitur forum diskusi sebagai wadah bagi para siswa untuk bertanya mengenai materi yang kurang dipahami dan menjawab pertanyaan yang diajukan oleh pengajar.
+Pada platform ini, nantinya pengguna akan diminta untuk mendaftar sebagai siswa atau pengajar. Setelah mendaftar, siswa akan memilih pengajar sesuai preferensi masing-masing. Ketika sudah menentukan pengajar yang diinginkan, siswa akan memilih slot jadwal pembelajaran sesuai waktu yang tersedia. Selain itu, aplikasi ini juga menyediakan fitur forum diskusi sebagai wadah bagi para siswa untuk bertanya mengenai materi yang kurang dipahami dan menjawab pertanyaan yang diajukan oleh pengajar.
 
 **Modul-modul di aplikasi**
 - Dashboard dan login : Halaman awal yang menampilkan informasi umum aplikasi, menampilkan navigasi dengan link pada halaman lainnya, serta akses untuk login ke dalam website.
 - Pendaftaran siswa : Halaman yang berisi form untuk registrasi untuk mendaftar sebagai siswa bimbingan belajar. Setelah registrasi berhasil, maka akan ditampilkan halaman yang berisi profil siswa serta nantinya bisa dilakukan edit pada profil.
 - Pendaftaran Pengajar : Halaman yang berisi form untuk registrasi untuk mendaftar sebagai pengajar bimbingan belajar. Setelah registrasi berhasil, maka akan ditampilkan halaman yang berisi profil pengajar serta nantinya bisa dilakukan edit pada profil.
-- Murid Mem-booking pengajar : Halaman akan menampilkan daftar profil dan jadwal pengajar, lalu siswa dapat memilih pengajar yang diinginkan. Setelahnya, akan ditampilkan informasi kontak pengajar untuk kelanjutan mekanisme  pembelajaran.
-- Jadwal : siswa dapat memilih jadwal pembelajaran sesuai slot yang ada. Ketika sudah memilih, akan ditampilkan halaman jadwal yang telah dipilih oleh siswa dan nantinya dapat dilakukan edit apabila terdapat jadwal yang ingin diubah.
-- Forum Diskusi : siswa dapat bertanya atau mendiskusikan  materi atau soal yang kurang dipahami pada forum diskusi kepada pengajar atau siswa lainnya.
+- Murid Mem-booking pengajar : Halaman akan menampilkan daftar profil pengajar, lalu siswa dapat memilih pengajar yang diinginkan. Setelahnya, akan ditampilkan informasi kontak pengajar untuk kelanjutan mekanisme  pembelajaran.
+- Jadwal : Siswa dapat memilih jadwal pembelajaran sesuai slot yang ada. Ketika sudah memilih, akan ditampilkan halaman jadwal yang telah dipilih oleh siswa dan nantinya dapat dilakukan edit apabila terdapat jadwal yang ingin diubah.
+- Forum Diskusi : Siswa dapat bertanya atau mendiskusikan  materi atau soal yang kurang dipahami pada forum diskusi kepada pengajar atau siswa lainnya.
 - Testimoni : Pada halaman ini, siswa yang sudah terdaftar dapat mengisi form testimoni bimbingan belajar yang nantinya akan ditampilkan pada halaman dashboard. 
 
 **Persona role** 
-- Siswa : siswa yang mengikuti bimbingan belajar
-- Pengajar : Pengajar yang mengajar murid 
+- Siswa : Siswa yang mengikuti bimbingan belajar.
+- Pengajar : Pengajar yang mengajar siswa.
 
 Dengan dibuatnya aplikasi ini, kami berharap dapat membantu para siswa dalam menemukan tutor yang tepat untuk membantu dalam memahami materi pembelajaran pada masa pembelajaran jarak jauh (PJJ) dengan lebih baik. Selain itu, adanya pandemi saat ini juga membawa kesulitan pada para tutor/pengajar untuk menawarkan jasanya.  Oleh karena itu, kami berharap, aplikasi ini dapat membantu mempertemukan siswa dan tutor/pengajar yang tepat dalam kondisi pandemi ini secara online.
 
