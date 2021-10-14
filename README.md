@@ -14,26 +14,25 @@ Anggota Kelompok
 6. Adella Rakha Amadea - 2006463616
 7. Muhammad Halif - 2006473850
 
-Di masa pandemi sekarang, kegiatan belajar anak dilakukan secara online. Hal ini sudah menjadi kebijakan pemerintah yang harus kita patuhi. Akan tetapi, metode pembelajaran seperti ini tentu membuat kebanyakan anak-anak di Indonesia yang masih belum paham akan materi yang diajarkan oleh gurunya. Lantas bagaimana solusinya agar anak-anak  tetap bisa memahami dengan materi pelajarannya? Tentu saja dalam hal ini kita membutuhkan seorang pembimbing belajar untuk anak di masa corona saat ini. Dari isu tersebut, kelompok kami terdorong untuk membuat sebuah aplikasi yang membantu siswa dalam memahami materi pembelajaran melalui platform bimbel online. 
+Ide Aplikasi : Bimbingan Belajar pada Masa Pandemi Covid-19
 
-Pada platform ini, pengguna diminta untuk mendaftar, sebagai murid atau pengajar. Setelah mendaftar, murid memilih pengajar sesuai preferensi murid masing-masing. Ketika sudah menentukan pengajar, murid memilih slot jadwal pembelajaran sesuai waktu yang tersedia. Kemudian tahap akhir adalah proses bayar-membayar yang dilakukan melalui platform ini juga.
+Di masa pandemi covid-19 saat ini, kegiatan belajar murid dilakukan secara online dari rumah. Hal ini sudah menjadi kebijakan pemerintah yang harus kita patuhi. Akan tetapi, metode pembelajaran seperti ini tentu membuat kebanyakan murid di Indonesia yang kurang dapat memahami materi yang diajarkan di sekolah. Selain itu, pandemi covid-19 ini juga memberikan dampak lain yaitu kesulitan finansial bahkan hingga kenaikan angka pengangguran. Sebagai solusi dari kedua permasalahan tersebut, kami berpikir untuk membuat suatu website yang dapat mempertemukan antara pengajar dengan murid yang membutuhkan tutor melalui platform bimbel online. Aplikasi ini dapat membantu para murid yang kesulitan dalam memahami materi pembelajaran serta mempertemukannya dengan tutor/pengajar yang juga membutuhkan pekerjaan. 
 
-Selain itu, aplikasi ini juga menyediakan fitur forum diskusi dan latihan soal. Forum diskusi adalah wadah bagi para murid untuk bertanya tentang materi yang kurang dipahami dan wadah bagi para pengajar untuk menganalisis materi yang membuat murid cukup kesulitan. Sedangkan latihan soal adalah wadah untuk murid dan pengajar mengukur kemampuan dan pemahaman murid terhadap materi yang telah diajarkan.
+Pada platform ini, pengguna diminta untuk mendaftar, sebagai murid atau pengajar. Setelah mendaftar, murid memilih pengajar sesuai preferensi murid masing-masing. Ketika sudah menentukan pengajar, murid memilih slot jadwal pembelajaran sesuai waktu yang tersedia. Selain itu, aplikasi ini juga menyediakan fitur forum diskusi sebagai wadah bagi para murid untuk bertanya mengenai materi yang kurang dipahami dan menjawab pertanyaan yang diajukan oleh pengajar. 
 
 Modul-modul di aplikasi 
-- Pendaftaran Murid : murid mendaftar bimbingan belajar (murid dan admin)
-- Pendaftaran Pengajar : pengajar mendaftar menjadi pengajar di bimbingan belajar (pengajar dan admin)
-- Hasil pembelajaran : pengajar menginput hasil pembelajaran murid dan murid dapat melihat hasil pembelajaran tersebut. (murid dan pengajar)
-- Jadwal : murid dapat melihat jadwal pembelajarannya. (murid dan pengajar)
-- Bayar-Membayar : setelah mendaftar murid akan disuruh membayar (murid, pengajar, admin)
-- Latihan Soal  : Pengajar akan memberikan latihan soal yang dapat diakses secara umum (murid dan pengajar)
-- Forum Diskusi : Murid dapat bertanya atau mendiskusikan  materi atau soal yang kurang dipahami pada forum diskusi kepada pengajar atau murid lain.(murid dan guru).
+- dashboard dan login : Halaman awal yang menampilkan informasi umum aplikasi, menampilkan navigasi dengan page lainnya, serta akses untuk login ke dalam website.
+- Pendaftaran Murid : Halaman yang berisi form untuk registrasi untuk mendaftar sebagai murid bimbingan belajar. Setelah registrasi berhasil, maka akan redirect pada halaman yang berisi profil murid serta nantinya bisa dilakukan edit pada profil.
+- Pendaftaran Pengajar : Halaman yang berisi form untuk registrasi untuk mendaftar sebagai pengajar bimbingan belajar. Setelah registrasi berhasil, maka akan redirect pada halaman yang berisi profil pengajar serta nantinya bisa dilakukan edit pada profil.
+- Murid Mem-booking pengajar : Halaman akan menampilkan daftar profil dan jadwal pengajar, lalu murid dapat memilih pengajar yang diinginkan. Lalu, akan ditampilkan informasi kontak pengajar untuk kelanjutan proses pembelajaran.
+- Jadwal : Murid dapat melihat jadwal pembelajarannya. (murid dan pengajar)
+- Forum Diskusi : Murid dapat bertanya atau mendiskusikan  materi atau soal yang kurang dipahami pada forum diskusi kepada pengajar atau murid lain. 
+- Testimoni : Pada halaman ini, murid yang sudah terdaftar dapat mengisi form testimoni bimbingan belajar dan akan ditampilkan pada halaman dashboard.
 
 
 Persona role
-- Murid : murid yang mengikuti bimbingan belajar
-- Pengajar : pengajar yang mengajar murid
-- Admin bimbingan belajar
+- Murid : Murid yang mengikuti bimbingan belajar
+- Pengajar : Pengajar yang mengajar murid
 
 
 Dengan dibuatnya aplikasi ini, kami berharap dapat membantu para murid dalam memahami materi pembelajaran pada masa pembelajaran jarak jauh (PJJ). Selain itu, adanya pandemi covid-19 saat ini juga membawa dampak banyaknya karyawan yang di PHK dan juga pendapatan pekerja yang umumnya berkurang. Oleh karena itu, kami berharap dengan adanya aplikasi ini dapat memberi lapangan pekerjaan baru sebagai pengajar dalam membantu para murid atau dapat menjadi pekerjaan sampingan para pengajar.
