@@ -14,28 +14,26 @@ Anggota Kelompok
 6. Adella Rakha Amadea - 2006463616
 7. Muhammad Halif - 2006473850
 
-Ide Aplikasi : Bimbingan Belajar pada Masa Pandemi Covid-19
+##Ide Aplikasi : Bimbingan Belajar pada Masa Pandemi Covid-19 
 
-Di masa pandemi covid-19 saat ini, kegiatan belajar murid dilakukan secara online dari rumah. Hal ini sudah menjadi kebijakan pemerintah yang harus kita patuhi. Akan tetapi, metode pembelajaran seperti ini tentu membuat kebanyakan murid di Indonesia yang kurang dapat memahami materi yang diajarkan di sekolah. Selain itu, pandemi covid-19 ini juga memberikan dampak lain yaitu kesulitan finansial bahkan hingga kenaikan angka pengangguran. Sebagai solusi dari kedua permasalahan tersebut, kami berpikir untuk membuat suatu website yang dapat mempertemukan antara pengajar dengan murid yang membutuhkan tutor melalui platform bimbel online. Aplikasi ini dapat membantu para murid yang kesulitan dalam memahami materi pembelajaran serta mempertemukannya dengan tutor/pengajar yang juga membutuhkan pekerjaan. 
+Di masa pandemi seperti ini, dengan terbatasnya pertemuan antara siswa dengan guru, maka secara otomatis kemampuan siswa dalam menerima materi pun akan terbatas. Berkurangnya intensitas pertemuan siswa dengan guru di sekolah serta sistem pembelajaran yang dilakukan secara jarak jauh menjadi kendala dalam pencapaian tujuan belajar.  Salah satu solusi yang dapat dilakukan yaitu dengan melakukan pendampingan belajar oleh orang tua di rumah. Namun, hal ini sulit dilakukan karena kebanyakan  orang tua memiliki kesibukan tersendiri. Maka dari itu, kebanyakan orang tua memilih untuk mendaftarkan anaknya untuk mengikuti les privat ataupun tutor agar dapat memahami materi dengan lebih baik. Namun, ditengah pandemi saat ini, tentu menjadi salah satu tantangan tersendiri bagi para orang tua dalam menemukan tutor yang tepat bagi anaknya. Begitupun sebaliknya, para tutor/pengajar juga kesulitan untuk mencari pekerjaan karena perlu adanya penyesuaian sistem atau platform untuk menerapkan kegiatan tutor secara online. Untuk menyelesaikan permasalahan tersebut, kami berpikir untuk membuat website yang dapat mempertemukan antara pengajar dengan siswa yang membutuhkan tutor melalui platform bimbel online dengan mudah. Aplikasi ini dapat membantu para siswa yang kesulitan dalam memahami materi pembelajaran serta mempertemukannya dengan tutor/pengajar yang juga sedang  mencari pekerjaan. 
 
-Pada platform ini, pengguna diminta untuk mendaftar, sebagai murid atau pengajar. Setelah mendaftar, murid memilih pengajar sesuai preferensi murid masing-masing. Ketika sudah menentukan pengajar, murid memilih slot jadwal pembelajaran sesuai waktu yang tersedia. Selain itu, aplikasi ini juga menyediakan fitur forum diskusi sebagai wadah bagi para murid untuk bertanya mengenai materi yang kurang dipahami dan menjawab pertanyaan yang diajukan oleh pengajar. 
+Pada platform ini, nantinya pengguna akan diminta untuk mendaftar, sebagai siswa atau pengajar. Setelah mendaftar, siswa akan memilih pengajar sesuai preferensi masing-masing. Ketika sudah menentukan pengajar yang diinginkan, siswa akan memilih slot jadwal pembelajaran sesuai waktu yang tersedia. Selain itu, aplikasi ini juga menyediakan fitur forum diskusi sebagai wadah bagi para siswa untuk bertanya mengenai materi yang kurang dipahami dan menjawab pertanyaan yang diajukan oleh pengajar.
 
-Modul-modul di aplikasi 
-- dashboard dan login : Halaman awal yang menampilkan informasi umum aplikasi, menampilkan navigasi dengan page lainnya, serta akses untuk login ke dalam website.
-- Pendaftaran Murid : Halaman yang berisi form untuk registrasi untuk mendaftar sebagai murid bimbingan belajar. Setelah registrasi berhasil, maka akan redirect pada halaman yang berisi profil murid serta nantinya bisa dilakukan edit pada profil.
-- Pendaftaran Pengajar : Halaman yang berisi form untuk registrasi untuk mendaftar sebagai pengajar bimbingan belajar. Setelah registrasi berhasil, maka akan redirect pada halaman yang berisi profil pengajar serta nantinya bisa dilakukan edit pada profil.
-- Murid Mem-booking pengajar : Halaman akan menampilkan daftar profil dan jadwal pengajar, lalu murid dapat memilih pengajar yang diinginkan. Lalu, akan ditampilkan informasi kontak pengajar untuk kelanjutan proses pembelajaran.
-- Jadwal : Murid dapat melihat jadwal pembelajarannya. (murid dan pengajar)
-- Forum Diskusi : Murid dapat bertanya atau mendiskusikan  materi atau soal yang kurang dipahami pada forum diskusi kepada pengajar atau murid lain. 
-- Testimoni : Pada halaman ini, murid yang sudah terdaftar dapat mengisi form testimoni bimbingan belajar dan akan ditampilkan pada halaman dashboard.
+##Modul-modul di aplikasi 
+- Dashboard dan login : Halaman awal yang menampilkan informasi umum aplikasi, menampilkan navigasi dengan link pada halaman lainnya, serta akses untuk login ke dalam website.
+- Pendaftaran siswa : Halaman yang berisi form untuk registrasi untuk mendaftar sebagai siswa bimbingan belajar. Setelah registrasi berhasil, maka akan ditampilkan halaman yang berisi profil siswa serta nantinya bisa dilakukan edit pada profil.
+- Pendaftaran Pengajar : Halaman yang berisi form untuk registrasi untuk mendaftar sebagai pengajar bimbingan belajar. Setelah registrasi berhasil, maka akan ditampilkan halaman yang berisi profil pengajar serta nantinya bisa dilakukan edit pada profil.
+- Murid Mem-booking pengajar : Halaman akan menampilkan daftar profil dan jadwal pengajar, lalu siswa dapat memilih pengajar yang diinginkan. Setelahnya, akan ditampilkan informasi kontak pengajar untuk kelanjutan mekanisme  pembelajaran.
+- Jadwal : siswa dapat memilih jadwal pembelajaran sesuai slot yang ada. Ketika sudah memilih, akan ditampilkan halaman jadwal yang telah dipilih oleh siswa dan nantinya dapat dilakukan edit apabila terdapat jadwal yang ingin diubah.
+- Forum Diskusi : siswa dapat bertanya atau mendiskusikan  materi atau soal yang kurang dipahami pada forum diskusi kepada pengajar atau siswa lainnya.
+- Testimoni : Pada halaman ini, siswa yang sudah terdaftar dapat mengisi form testimoni bimbingan belajar yang nantinya akan ditampilkan pada halaman dashboard. 
 
+##Persona role 
+- Siswa : siswa yang mengikuti bimbingan belajar
+- Pengajar : Pengajar yang mengajar murid 
 
-Persona role
-- Murid : Murid yang mengikuti bimbingan belajar
-- Pengajar : Pengajar yang mengajar murid
-
-
-Dengan dibuatnya aplikasi ini, kami berharap dapat membantu para murid dalam memahami materi pembelajaran pada masa pembelajaran jarak jauh (PJJ). Selain itu, adanya pandemi covid-19 saat ini juga membawa dampak banyaknya karyawan yang di PHK dan juga pendapatan pekerja yang umumnya berkurang. Oleh karena itu, kami berharap dengan adanya aplikasi ini dapat memberi lapangan pekerjaan baru sebagai pengajar dalam membantu para murid atau dapat menjadi pekerjaan sampingan para pengajar.
+Dengan dibuatnya aplikasi ini, kami berharap dapat membantu para siswa dalam menemukan tutor yang tepat untuk membantu dalam memahami materi pembelajaran pada masa pembelajaran jarak jauh (PJJ) dengan lebih baik. Selain itu, adanya pandemi saat ini juga membawa kesulitan pada para tutor/pengajar untuk menawarkan jasanya.  Oleh karena itu, kami berharap, aplikasi ini dapat membantu mempertemukan siswa dan tutor/pengajar yang tepat dalam kondisi pandemi ini secara online.
 
 
 [actions-badge]: https://github.com/laymonage/django-template-heroku/workflows/Test%20and%20Deploy/badge.svg
