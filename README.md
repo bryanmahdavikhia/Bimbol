@@ -14,7 +14,7 @@ Anggota Kelompok
 6. Adella Rakha Amadea - 2006463616
 7. Muhammad Halif - 2006473850
 
-**Link Heroku: https://tk-pbp-a01.herokuapp.com/**
+**Link Heroku: https://tk-pbp-a01.herokuapp.com/** <br>
 **Ide Aplikasi : Bimbingan Belajar pada Masa Pandemi Covid-19**
 
 Di masa pandemi seperti ini, dengan terbatasnya pertemuan antara siswa dengan guru, maka secara otomatis kemampuan siswa dalam menerima materi pun akan terbatas. Berkurangnya intensitas pertemuan siswa dengan guru di sekolah serta sistem pembelajaran yang dilakukan secara jarak jauh menjadi kendala dalam pencapaian tujuan belajar.  Salah satu solusi yang dapat dilakukan yaitu dengan melakukan pendampingan belajar oleh orang tua di rumah. Namun, hal ini sulit dilakukan karena kebanyakan  orang tua memiliki kesibukan tersendiri. Maka dari itu, kebanyakan orang tua memilih untuk mendaftarkan anaknya untuk mengikuti les privat ataupun tutor agar dapat memahami materi dengan lebih baik. Namun, ditengah pandemi saat ini, tentu menjadi salah satu tantangan tersendiri bagi para orang tua dalam menemukan tutor yang tepat bagi anaknya. Begitupun sebaliknya, para tutor/pengajar juga kesulitan untuk mencari pekerjaan karena perlu adanya penyesuaian sistem atau platform untuk menerapkan kegiatan tutor secara online. Untuk menyelesaikan permasalahan tersebut, kami berpikir untuk membuat website yang dapat mempertemukan antara pengajar dengan siswa yang membutuhkan tutor melalui platform bimbel online dengan mudah. Aplikasi ini dapat membantu para siswa yang kesulitan dalam memahami materi pembelajaran serta mempertemukannya dengan tutor/pengajar yang juga sedang  mencari pekerjaan. 
