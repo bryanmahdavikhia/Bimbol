@@ -22,5 +22,6 @@ urlpatterns = [
     path('forum/', include('forum.urls')),
     path('pendaftaransiswa/', include('pendaftaransiswa.urls')),
     path('pendaftaransiswa/', include('django.contrib.auth.urls')),
-    path('login/', include('login_mainpage.urls'))
+    path('login/', include('login_mainpage.urls')),
+    path('testimoni/', include('testimoni.urls'))
 ]

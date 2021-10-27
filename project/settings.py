@@ -58,7 +58,8 @@ INSTALLED_APPS = [
     'main',
     'forum',
     'pendaftaransiswa',
-    'login_mainpage'
+    'login_mainpage',
+    'testimoni'
 ]
 
 MIDDLEWARE = [
