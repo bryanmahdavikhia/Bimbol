@@ -19,7 +19,7 @@ class RegisterFormGuru(UserCreationForm):
 		widget=forms.TextInput(
 			attrs={'class':'form-control'}))
 
-	TAHUN = range(1961, 2001, 1)
+	TAHUN = range(1961, 2002, 1)
 	tanggal_lahir = forms.DateField(
 		widget=forms.SelectDateWidget(
 			attrs={'class':'form-group col-sm-2'}, years=TAHUN))
@@ -41,9 +41,9 @@ class RegisterFormGuru(UserCreationForm):
 		widget=forms.RadioSelect(), 
 		choices=userGuru.KELAS_CHOICES)
 	
-	mata_pelajaran = forms.MultipleChoiceField(
+	mata_pelajaran = forms.ChoiceField(
 		label='Mata Pelajaran', 
-		widget=forms.CheckboxSelectMultiple(), 
+		widget=forms.RadioSelect(), 
 		choices=userGuru.MATA_PELAJARAN_CHOICES)
 	
 	validasi_guru = forms.FileField(
