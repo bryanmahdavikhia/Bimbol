@@ -13,7 +13,7 @@ def Register_guru(request):
 			form.save()
 			username = form.cleaned_data.get('username')
 			password = form.cleaned_data.get('password1')
-			user = authenticate(username=username, password=password)
+			user = authenticate(request,username=username, password=password)
 			
 			# tambahkan user ke dalam group Guru
 			group = Group.objects.get(name='Guru')
