@@ -7,23 +7,23 @@ class userGuru(models.Model):
     nomor_telefon = models.CharField(max_length=100, default='')
     tanggal_lahir = models.DateField(default="1961-01-01")
 
-    JENIS_KELAMIN_CHOICES = [('p', 'pria'), ('w', 'wanita')]
+    JENIS_KELAMIN_CHOICES = [('pria', 'pria'), ('wanita', 'wanita')]
     jenis_kelamin = models.CharField(choices=JENIS_KELAMIN_CHOICES, max_length=100, default='')
     alamat = models.TextField(max_length=140, default='')
 
-    KELAS_CHOICES = [('1', '10'), ('2', '11'), ('3', '12')]
+    KELAS_CHOICES = [('10', '10'), ('11', '11'), ('12', '12')]
     kelas = models.CharField(max_length=225, choices=KELAS_CHOICES, default='10')
 
     MATA_PELAJARAN_CHOICES = [
-    ('MTK', 'Matematika'),
-    ('Fis', 'Fisika'), 
-    ('Bio', 'Biologi'),
-    ('Kim', 'Kimia'),
-    ('B.Indo', 'B.Indonesia'), 
-    ('B.Ing', 'B.Inggris'), 
-    ('Eko', 'Ekonomi'), 
-    ('Geo', 'Geografi'),
-    ('Sosio', 'Sosiologi'),
+    ('Matematika', 'Matematika'),
+    ('Fisika', 'Fisika'), 
+    ('Biologi', 'Biologi'),
+    ('Kimia', 'Kimia'),
+    ('B.Indonesia', 'B.Indonesia'), 
+    ('B.Inggris', 'B.Inggris'), 
+    ('Ekonomi', 'Ekonomi'), 
+    ('Geografi', 'Geografi'),
+    ('Sosiologi', 'Sosiologi'),
     ('Sejarah', 'Sejarah'),
     ]
     mata_pelajaran = models.CharField(max_length=225, choices=MATA_PELAJARAN_CHOICES)
