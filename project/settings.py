@@ -94,6 +94,8 @@ TEMPLATES = [
     },
 ]
 
+AUTH_USER_MODEL = 'pendaftaransiswa.SiswaModel'
+
 WSGI_APPLICATION = 'project.wsgi.application'
 
 

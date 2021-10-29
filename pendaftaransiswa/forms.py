@@ -2,7 +2,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
 from django.utils.regex_helper import Choice
-from . models import SiswaUser
+from . models import SiswaModel
 
 class RegisterFormSiswa(UserCreationForm):
 	email = forms.EmailField(
@@ -34,20 +34,20 @@ class RegisterFormSiswa(UserCreationForm):
 	kelas = forms.ChoiceField(
 		label='Kelas', 
 		widget=forms.RadioSelect(), 
-		choices=SiswaUser.KELAS_CHOICES)
+		choices=SiswaModel.KELAS_CHOICES)
 	
 	mata_pelajaran = forms.MultipleChoiceField(
 		label='Mata Pelajaran', 
 		widget=forms.CheckboxSelectMultiple(), 
-		choices=SiswaUser.MATA_PELAJARAN_CHOICES)
+		choices=SiswaModel.MATA_PELAJARAN_CHOICES)
 
 	payment = forms.ChoiceField(
 		label='Payment Details', 
 		widget=forms.RadioSelect(), 
-		choices=SiswaUser.PAYMENT_CHOICES)
+		choices=SiswaModel.PAYMENT_CHOICES)
 
 	class Meta:
-		model = User
+		model = SiswaModel
         # fields='__all__'
 		fields = ('username', 'nama_lengkap', 'tanggal_lahir', 'jenis_kelamin', 'alamat', 'agree', 'kelas', 'mata_pelajaran', 'payment', 'email', 'password1', 'password2')
 
