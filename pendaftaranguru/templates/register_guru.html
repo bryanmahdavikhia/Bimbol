@@ -5,8 +5,7 @@
 <div class="container">
   <div class="shadow p-4 mb-5 bg-body rounded"> 
     <h1>Pendaftaran Guru</h1>
-    <form method="POST"> 
-      {% csrf_token %} 
+    <form method="POST" action=""> {% csrf_token %} 
       <div class="form-group">
         {{registerform.username.label_tag}}
         {{registerform.username}}
@@ -40,6 +39,14 @@
         {{registerform.nama_lengkap.label_tag}}
         {{registerform.nama_lengkap}}
       </div>
+
+      <br>
+      <div class="form-group">
+        {{registerform.nomor_telefon.label_tag}}
+        {{registerform.nomor_telefon.label_tag}}
+
+      </div>
+
 
       <br>
 
@@ -109,12 +116,18 @@
       <br>
 
       <div class="form-group">
+        {{registerform.foto_guru.label_tag}}
+        {{registerform.foto_guru}}
+      </div>
+      <br>
+
+      <div class="form-group">
         {{registerform.agree.label_tag}}
         {{registerform.agree}}
       </div>
 
       <br>
-      <input class="btn btn-primary" style = "background-color: #FFFFFF; color: #393E46; border-color: rgb(108, 74, 74); " type ="submit" value="Submit">
+      <button class="btn-primary" type="submit">Submit</button>
 
     </form>
   </div>

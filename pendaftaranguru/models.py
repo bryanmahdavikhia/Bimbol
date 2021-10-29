@@ -29,4 +29,8 @@ class userGuru(models.Model):
     mata_pelajaran = models.CharField(max_length=225, choices=MATA_PELAJARAN_CHOICES)
 
     validasi_guru = models.FileField()
+    #foto_guru = models.ImageField()
     aggree = models.BooleanField(default=False)
+
+    def __str__(self):
+        return (self.nama_lengkap),
