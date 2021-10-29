@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class userGuru(models.Model):
+class GuruUser(models.Model):
     nama_lengkap = models.CharField(max_length=100, default='')
     email = models.EmailField(default='')
     nomor_telefon = models.CharField(max_length=100, default='')

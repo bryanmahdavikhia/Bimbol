@@ -4,133 +4,134 @@
 
 <div class="container">
   <div class="shadow p-4 mb-5 bg-body rounded"> 
-    <h1>Pendaftaran Guru</h1>
-    <form method="POST" action=""> {% csrf_token %} 
-      <div class="form-group">
-        {{registerform.username.label_tag}}
-        {{registerform.username}}
-      </div>
-
-      <br>
-
-      <div class="form-group">
-      {{registerform.password1.label_tag}}
-      {{registerform.password1}}
-      </div>
-
-      <br>
-
-      <div class="form-group">
-        {{registerform.password2.label_tag}}
-        {{registerform.password2}}
-      </div>
-
-        
-      <br>
-
-      <div class="form-group">
-        {{registerform.email.label_tag}}
-        {{registerform.email}}
-      </div>
-          
-      <br/>
-
-      <div class="form-group">
-        {{registerform.nama_lengkap.label_tag}}
-        {{registerform.nama_lengkap}}
-      </div>
-
-      <br>
-      <div class="form-group">
-        {{registerform.nomor_telefon.label_tag}}
-        {{registerform.nomor_telefon.label_tag}}
-
-      </div>
-
-
-      <br>
-
-      <div class="form-group">
-        {{registerform.tanggal_lahir.label_tag}}
-        <div class="form-row">
-          {{registerform.tanggal_lahir}}
-        </div>
-      </div>
-
-      <br>
-
-      <div class="form-group">
-        {{registerform.kelas.label_tag}}
-        {% for kelas in registerform.kelas %}
-          <div class="form-group">
-            {{kelas.tag}}
-            <label for="{{kelas.id_for_label}}">
-              {{kelas.choice_label}}
-            </label>
-          </div>
-        {% endfor %}
-      </div>
-
-      <br>
-
-      <div class="form-group">
-        {{registerform.mata_pelajaran.label_tag}}
-        {% for mata_pelajaran in registerform.mata_pelajaran %}
-          <div class="form-group">
-            {{mata_pelajaran.tag}}
-            <label for="{{mata_pelajaran.id_for_label}}">
-              {{mata_pelajaran.choice_label}}
-            </label>
-          </div>
-        {% endfor %}
-      </div>
-
-      <br>
-
-      <div class="form-group">
-        {{ registerform.alamat.label_tag}}
-          {{ registerform.alamat}}
-      </div>
-
-      <br>
-
-      <div class="form-group">
-        {{registerform.jenis_kelamin.label_tag}}
-        {% for jenis_kelamin in registerform.jenis_kelamin %}
-          <div class="form-group">
-            {{jenis_kelamin.tag}}
-            <label for="{{jenis_kelamin.id_for_label}}">
-              {{jenis_kelamin.choice_label}}
-            </label>
-          </div>
-        {% endfor %}
-      </div>
-
-      <br>
-
-      <div class="form-group">
-        {{registerform.validasi_guru.label_tag}}
-        {{registerform.validasi_guru}}
-      </div>
-
-      <br>
-
-      <div class="form-group">
-        {{registerform.foto_guru.label_tag}}
-        {{registerform.foto_guru}}
-      </div>
-      <br>
-
-      <div class="form-group">
-        {{registerform.agree.label_tag}}
-        {{registerform.agree}}
-      </div>
-
-      <br>
-      <button class="btn-primary" type="submit">Submit</button>
-
-    </form>
+  <h1>Pendaftaran Guru</h1>
+<form method="POST" > 
+{% csrf_token %} 
+  <div class="form-group">
+    {{registerform.username.label_tag}}
+    {{registerform.username}}
   </div>
+
+  <br>
+
+  <div class="form-group">
+  {{registerform.password1.label_tag}}
+  {{registerform.password1}}
+  </div>
+
+  <br>
+
+  <div class="form-group">
+    {{registerform.password2.label_tag}}
+    {{registerform.password2}}
+  </div>
+
+    
+  <br>
+
+  <div class="form-group">
+    {{registerform.email.label_tag}}
+    {{registerform.email}}
+  </div>
+      
+  <br/>
+
+  <div class="form-group">
+    {{registerform.nama_lengkap.label_tag}}
+    {{registerform.nama_lengkap}}
+  </div>
+
+  <br>
+  <div class="form-group">
+    {{registerform.nomor_telefon.label_tag}}
+    {{registerform.nomor_telefon.label_tag}}
+
+  </div>
+
+
+  <br>
+
+  <div class="form-group">
+    {{registerform.tanggal_lahir.label_tag}}
+    <div class="form-row">
+      {{registerform.tanggal_lahir}}
+    </div>
+  </div>
+
+  <br>
+
+  <div class="form-group">
+    {{registerform.kelas.label_tag}}
+    {% for kelas in registerform.kelas %}
+      <div class="form-group">
+        {{kelas.tag}}
+        <label for="{{kelas.id_for_label}}">
+          {{kelas.choice_label}}
+        </label>
+      </div>
+    {% endfor %}
+  </div>
+
+  <br>
+
+  <div class="form-group">
+    {{registerform.mata_pelajaran.label_tag}}
+    {% for mata_pelajaran in registerform.mata_pelajaran %}
+      <div class="form-group">
+        {{mata_pelajaran.tag}}
+        <label for="{{mata_pelajaran.id_for_label}}">
+          {{mata_pelajaran.choice_label}}
+        </label>
+      </div>
+    {% endfor %}
+  </div>
+
+  <br>
+
+  <div class="form-group">
+    {{ registerform.alamat.label_tag}}
+      {{ registerform.alamat}}
+  </div>
+
+  <br>
+
+  <div class="form-group">
+    {{registerform.jenis_kelamin.label_tag}}
+    {% for jenis_kelamin in registerform.jenis_kelamin %}
+      <div class="form-group">
+        {{jenis_kelamin.tag}}
+        <label for="{{jenis_kelamin.id_for_label}}">
+          {{jenis_kelamin.choice_label}}
+        </label>
+      </div>
+    {% endfor %}
+  </div>
+
+  <br>
+
+  <div class="form-group">
+    {{registerform.validasi_guru.label_tag}}
+    {{registerform.validasi_guru}}
+  </div>
+
+  <br>
+
+  <div class="form-group">
+    {{registerform.foto_guru.label_tag}}
+    {{registerform.foto_guru}}
+  </div>
+  <br>
+
+  <div class="form-group">
+    {{registerform.agree.label_tag}}
+    {{registerform.agree}}
+  </div>
+
+  <br>
+  <button class="btn-primary" type="submit">Submit</button>
+
+</form>
+</div>
 </div>
 
 {% endblock content %}
