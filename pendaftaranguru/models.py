@@ -2,15 +2,14 @@ from django.db import models
 
 # Create your models here.
 class userGuru(models.Model):
-    nama_lengkap = models.CharField(max_length=100)
-    email = models.EmailField('User Email')
-    nomor_telefon = models.CharField(max_length=100)
-    tanggal_lahir = models.DateField()
+    nama_lengkap = models.CharField(max_length=100, default='')
+    email = models.EmailField(default='')
+    nomor_telefon = models.CharField(max_length=100, default='')
+    tanggal_lahir = models.DateField(default="1961-01-01")
 
     JENIS_KELAMIN_CHOICES = [('p', 'pria'), ('w', 'wanita')]
-    jenis_kelamin = models.CharField(choices=JENIS_KELAMIN_CHOICES)
-    alamat = models.TextField()
-    aggree = models.BooleanField(default=False)
+    jenis_kelamin = models.CharField(choices=JENIS_KELAMIN_CHOICES, max_length=100, default='')
+    alamat = models.TextField(max_length=140, default='')
 
     KELAS_CHOICES = [('1', '10'), ('2', '11'), ('3', '12')]
     kelas = models.CharField(max_length=225, choices=KELAS_CHOICES, default='10')
@@ -27,6 +26,7 @@ class userGuru(models.Model):
     ('Sosio', 'Sosiologi'),
     ('Sejarah', 'Sejarah'),
     ]
-    mata_pelajaran = models.CharField(max_length=225, choices=MATA_PELAJARAN_CHOICES) 
+    mata_pelajaran = models.CharField(max_length=225, choices=MATA_PELAJARAN_CHOICES)
 
     validasi_guru = models.FileField()
+    aggree = models.BooleanField(default=False)
