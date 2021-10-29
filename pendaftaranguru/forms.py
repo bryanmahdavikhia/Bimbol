@@ -55,7 +55,7 @@ class RegisterFormGuru(UserCreationForm):
         # fields='__all__'
 		fields = ('username', 'nama_lengkap', 'tanggal_lahir', 'jenis_kelamin', 'alamat', 'agree', 'kelas', 'mata_pelajaran', 'email', 'password1', 'password2')
 
-
+	
 	def __init__(self, *args, **kwargs):
 		super(RegisterFormGuru, self).__init__(*args, **kwargs)
 
