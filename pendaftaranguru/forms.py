@@ -2,7 +2,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
 from django.utils.regex_helper import Choice
-from . models import userGuru
+from . models import GuruUser
 
 class RegisterFormGuru(UserCreationForm):
 	nama_lengkap = forms.CharField(
@@ -39,12 +39,12 @@ class RegisterFormGuru(UserCreationForm):
 	kelas = forms.ChoiceField(
 		label='Kelas', 
 		widget=forms.RadioSelect(), 
-		choices=userGuru.KELAS_CHOICES)
+		choices=GuruUser.KELAS_CHOICES)
 	
 	mata_pelajaran = forms.ChoiceField(
 		label='Mata Pelajaran', 
 		widget=forms.RadioSelect(), 
-		choices=userGuru.MATA_PELAJARAN_CHOICES)
+		choices=GuruUser.MATA_PELAJARAN_CHOICES)
 	
 	validasi_guru = forms.FileField(
 		widget=forms.FileInput(
