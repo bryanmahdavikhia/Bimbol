@@ -35,7 +35,7 @@ class SiswaManager(BaseUserManager):
         
 
 class SiswaModel(AbstractBaseUser):
-    email 				= models.EmailField(verbose_name='email', max_length=60, unique=True)
+    email 				= models.EmailField(unique=True, verbose_name='email', max_length=60)
     username 				= models.CharField(max_length=30, unique=True)
     date_joined			= models.DateTimeField(verbose_name='date joined', auto_now_add=True)
     last_login				= models.DateTimeField(verbose_name='last login', auto_now=True)
@@ -45,7 +45,6 @@ class SiswaModel(AbstractBaseUser):
     is_superuser			= models.BooleanField(default=False)
 	# first_name 				= models.CharField(max_length=30)
     nama_lengkap = models.CharField(max_length=100)
-    email = models.EmailField('User Email')
     tanggal_lahir = models.DateField()
 
     JENIS_KELAMIN_CHOICES = [('p', 'pria'), ('w', 'wanita')]

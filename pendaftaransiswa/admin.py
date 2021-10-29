@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from pendaftaransiswa.models import SiswaModel
+from . models import SiswaModel
 
 
 class SiswaAdmin(UserAdmin):
