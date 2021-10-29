@@ -33,4 +33,4 @@ class GuruUser(models.Model):
     aggree = models.BooleanField(default=False)
 
     def __str__(self):
-        return (self.nama_lengkap),
+        return (self.nama_lengkap)
