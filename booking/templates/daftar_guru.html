@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% comment %} {% extends 'base.html' %}
+
+{% block content %}
+
+<h1 style= "color: #706C61;">Notes Cards</h1><br>
+    <div class="card-columns">
+        {% for i in guru %}   
+        <div class="card">
+          <h4 class="card-header" style="background-color: #E5DCC3; color: #393E46;" >{{i.judul}}</h4>
+          <div class="card-body">
+            <h6 class="card-title">From : {{ i.nama_lengkap }}</h6>
+            <p class="card-text">{{ i.mata_pelajaran }} </p>
+          </div>
+        </div>
+        <br>
+        {% endfor %}  
+    </div>
+
+{% endblock content %} {% endcomment %}
+
+{% block content %}
+<div class="container">
+  <div class="shadow p-4 mb-5 bg-body rounded">
+<h1 style= "color: #706C61;">Daftar Guru</h1><br>
+<div class="card-columns">
+        {% for i in guru %}   
+        <div class="card">
+          <h4 class="card-header" style="background-color: #E5DCC3; color: #393E46;" ></h4>
+          <div class="card-body">
+            <h6 class="card-title">{{ i.nama_lengkap }}</h6>
+            <h6 class="card-title">{{ i.mata_pelajaran }}</h6>
+            <p class="card-text">{{ i.kelas}} </p>
+          </div>
+        </div>
+        <br>
+        {% endfor %}  
+    </div>
+</div>
+</div>
+
+{% endblock content %}

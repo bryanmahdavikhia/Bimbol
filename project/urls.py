@@ -23,6 +23,8 @@ urlpatterns = [
     path('pendaftaransiswa/', include('pendaftaransiswa.urls')),
     path('pendaftaransiswa/', include('django.contrib.auth.urls')),
     path('pendaftaranguru/', include('pendaftaranguru.urls')),
+    path('pendaftaranguru/', include('django.contrib.auth.urls')),
     #path('login/', include('login_mainpage.urls'))
-    path('testimoni/', include('testimoni.urls'))
+    path('testimoni/', include('testimoni.urls')),
+    path('booking/', include('booking.urls')),
 ]
