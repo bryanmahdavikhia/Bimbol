@@ -10,7 +10,7 @@ class SiswaUser(models.Model):
     JENIS_KELAMIN_CHOICES = [('p', 'pria'), ('w', 'wanita')]
     jenis_kelamin = models.CharField(choices=JENIS_KELAMIN_CHOICES),
     alamat = models.TextField(),
-    aggree = models.BooleanField(default=False)
+    agree = models.BooleanField(default=False)
 
     KELAS_CHOICES = [('1', '10'), ('2', '11'), ('3', '12')]
     kelas = models.CharField(max_length=225, choices=KELAS_CHOICES, default='10')

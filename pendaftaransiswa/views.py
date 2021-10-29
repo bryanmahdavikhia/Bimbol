@@ -21,7 +21,7 @@ def Register_siswa(request):
 
 			login(request, user)
 			messages.success(request, ("Registration Successful!"))
-			return redirect('home')
+			return redirect('homesiswa')
 	else:
 		form = RegisterFormSiswa()
 	
