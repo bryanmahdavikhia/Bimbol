@@ -1,8 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 from django import forms
-from django.utils.regex_helper import Choice
-from . models import SiswaModel
+from pendaftaransiswa.models import SiswaModel
 
 class RegisterFormSiswa(UserCreationForm):
 	email = forms.EmailField(
@@ -48,7 +46,6 @@ class RegisterFormSiswa(UserCreationForm):
 
 	class Meta:
 		model = SiswaModel
-        # fields='__all__'
 		fields = ('username', 'nama_lengkap', 'tanggal_lahir', 'jenis_kelamin', 'alamat', 'agree', 'kelas', 'mata_pelajaran', 'payment', 'email', 'password1', 'password2')
 
 

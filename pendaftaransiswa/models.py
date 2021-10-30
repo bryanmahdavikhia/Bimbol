@@ -3,27 +3,44 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 
 class SiswaManager(BaseUserManager):
-     def create_user(self, email, username, password=None):
+     def create_user(self, email, username, nama_lengkap, tanggal_lahir, jenis_kelamin, alamat, agree, kelas, mata_pelajaran, payment, password=None):
 
         if not email:
             raise ValueError('You must provide an email address')
         if not username:
             raise ValueError('You must have username')
 
-        user = self.create_user(
+        user = self.model(
             email=self.normalize_email(email),
             username=username,
+            nama_lengkap=nama_lengkap,
+            tanggal_lahir=tanggal_lahir,
+            jenis_kelamin=jenis_kelamin,
+            alamat=alamat,
+            agree=agree,
+            kelas=kelas,
+            mata_pelajaran=mata_pelajaran,
+            payment=payment,
         )
 
         user.set_password(password)
         user.save(using=self._db)
         return user
         
-     def create_superuser(self, email, username, password=None):
+     def create_superuser(self, email,  username, nama_lengkap, tanggal_lahir, jenis_kelamin, alamat, agree, kelas, mata_pelajaran, payment, password=None):
         user = self.create_user(
             email=self.normalize_email(email),
             password=password,
             username=username,
+            nama_lengkap=nama_lengkap,
+            tanggal_lahir=tanggal_lahir,
+            jenis_kelamin=jenis_kelamin,
+            alamat=alamat,
+            agree=agree,
+            kelas=kelas,
+            mata_pelajaran=mata_pelajaran,
+            payment=payment,
+            is_superuser = True,
         )
 
         user.is_admin=True
@@ -32,6 +49,15 @@ class SiswaManager(BaseUserManager):
         user.save(using=self._db)
 
         return user
+
+        
+#         def has_module_perms(self, app_label):
+#             return self.is_superuser
+        
+# def has_perm(self, perm, obj=None):
+#         return self.is_superuser
+
+       
         
 
 class SiswaModel(AbstractBaseUser):
@@ -74,7 +100,7 @@ class SiswaModel(AbstractBaseUser):
     
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username']
+    REQUIRED_FIELDS = ['username', 'nama_lengkap', 'tanggal_lahir', 'jenis_kelamin', 'alamat', 'agree', 'kelas', 'mata_pelajaran', 'payment']
     
     objects = SiswaManager()
     
