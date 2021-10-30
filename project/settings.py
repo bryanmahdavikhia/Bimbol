@@ -57,7 +57,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'forum',
-    'pendaftaransiswa',
+    'siswa',
     'login_mainpage',
     'testimoni',
     'pendaftaranguru'
@@ -94,7 +94,8 @@ TEMPLATES = [
     },
 ]
 
-AUTH_USER_MODEL = 'pendaftaransiswa.SiswaModel'
+AUTH_USER_MODEL ='siswa.CustomUser'
+# 'pendaftaransiswa.SiswaModel', 
 
 WSGI_APPLICATION = 'project.wsgi.application'
 

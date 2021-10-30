@@ -20,9 +20,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
     path('forum/', include('forum.urls')),
-    path('pendaftaransiswa/', include('pendaftaransiswa.urls')),
-    path('pendaftaransiswa/', include('django.contrib.auth.urls')),
     path('pendaftaranguru/', include('pendaftaranguru.urls')),
     #path('login/', include('login_mainpage.urls'))
-    path('testimoni/', include('testimoni.urls'))
+    path('testimoni/', include('testimoni.urls')),
+    path('siswa/', include('siswa.urls')),
 ]

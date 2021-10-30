@@ -1,6 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
-from pendaftaransiswa.models import SiswaModel
+from .models import CustomUser
 
 class RegisterFormSiswa(UserCreationForm):
 	email = forms.EmailField(
@@ -32,20 +32,20 @@ class RegisterFormSiswa(UserCreationForm):
 	kelas = forms.ChoiceField(
 		label='Kelas', 
 		widget=forms.RadioSelect(), 
-		choices=SiswaModel.KELAS_CHOICES)
+		choices=CustomUser.KELAS_CHOICES)
 	
 	mata_pelajaran = forms.MultipleChoiceField(
 		label='Mata Pelajaran', 
 		widget=forms.CheckboxSelectMultiple(), 
-		choices=SiswaModel.MATA_PELAJARAN_CHOICES)
+		choices=CustomUser.MATA_PELAJARAN_CHOICES)
 
 	payment = forms.ChoiceField(
 		label='Payment Details', 
 		widget=forms.RadioSelect(), 
-		choices=SiswaModel.PAYMENT_CHOICES)
+		choices=CustomUser.PAYMENT_CHOICES)
 
 	class Meta:
-		model = SiswaModel
+		model = CustomUser
 		fields = ('username', 'nama_lengkap', 'tanggal_lahir', 'jenis_kelamin', 'alamat', 'agree', 'kelas', 'mata_pelajaran', 'payment', 'email', 'password1', 'password2')
 
 
