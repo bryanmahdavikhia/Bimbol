@@ -122,6 +122,19 @@
 
   <br>
 
+  {% for field in registrationform %}
+  <p>
+      {% for error in field.errors %}
+      <p style="color:red">{{ error }}</p>
+      {% endfor %}
+  </p>
+  {% endfor %}
+  {% if registrationform.non_field_errors %}
+  <div style:"color:red">
+      <p>{{ registrationform.non_field_errors }}</p>
+  </div>
+  {% endif %}
+
   <button class="btn-primary" type="submit">Submit</button>
 
 </form>

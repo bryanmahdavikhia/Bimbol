@@ -1,3 +1,4 @@
+# from typing_extensions import Required
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 # from django.core.validators import RegexValidator
@@ -32,8 +33,14 @@ class CustomUser(AbstractUser):
     PAYMENT_CHOICES=[('CASH','Cash'), ('CHECK','Check'), ('CARD','Card')]
     payment = models.CharField(max_length=225, choices=PAYMENT_CHOICES, default='Card', blank=True, null=True)
 
+    validasi_guru = models.FileField()
+    nomor_telefon = models.CharField(max_length=100, default='')
+
     class Meta:
-        ordering = ['nama_lengkap', 'tanggal_lahir', 'jenis_kelamin', 'alamat', 'kelas', 'mata_pelajaran', 'payment', 'agree']
+        ordering = ['nama_lengkap', 'tanggal_lahir', 'jenis_kelamin', 'alamat', 'kelas', 'mata_pelajaran', 'payment', 'validasi_guru', 'nomor_telefon', 'agree']
 
     def __str__(self):
         return self.username
+
+
+

@@ -9,7 +9,8 @@ def register_siswa(request):
 		form = RegisterFormSiswa(request.POST)
 		if form.is_valid():
 			form.save()
-			username = form.cleaned_data.get('username')
+			print("test")
+			username = form.cleaned_data.get('username').lower()
 			raw_password = form.cleaned_data.get('password1')
 			account = authenticate(username=username, password=raw_password)
 			login(request, account)
@@ -19,7 +20,7 @@ def register_siswa(request):
 	else: #GET request
 		form = RegisterFormSiswa()
 		context['registerform'] = form
-	return render(request, 'registration_siswa.html', context)
+	return render(request, 'register_siswa.html', context)
 
 def home(request):
 	return render(request, 'home.html', {})

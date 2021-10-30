@@ -1,6 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
-from .models import CustomUser
+from userauth.models import CustomUser
 
 class RegisterFormSiswa(UserCreationForm):
 	email = forms.EmailField(
@@ -55,4 +55,22 @@ class RegisterFormSiswa(UserCreationForm):
 		self.fields['username'].widget.attrs['class'] = 'form-control'
 		self.fields['password1'].widget.attrs['class'] = 'form-control'
 		self.fields['password2'].widget.attrs['class'] = 'form-control'
+	
+	def clean_email(self):
+		email = self.cleaned_data['email'].lower()
+		try:
+			account = CustomUser.objects.get(email= email)
+		except Exception as e:
+			return email
+		raise forms.ValidationError("Email {email} is already in use.")
+
+	def clean_username(self):
+		username = self.cleaned_data['username']
+		try:
+			account = CustomUser.objects.get(username=username)
+		except Exception as e:
+			return username
+		raise forms.ValidationError("Username {username} is already in use.")
+
+	
 
