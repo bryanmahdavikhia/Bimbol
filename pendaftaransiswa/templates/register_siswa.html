@@ -44,6 +44,13 @@
   <br>
 
   <div class="form-group">
+    {{registerform.nomor_telefon.label_tag}}
+    {{registerform.nomor_telefon}}
+  </div>
+
+  <br>
+
+  <div class="form-group">
     {{registerform.tanggal_lahir.label_tag}}
     <div class="form-row">
       {{registerform.tanggal_lahir}}
@@ -120,20 +127,22 @@
     {{registerform.agree}}
   </div>
 
-  <br>
+  <br> 
+  
+  {% for field in registerform %}
+		<p>
+			<!-- {{field.label_tag}}
+			{{field}} -->
 
-  {% for field in registrationform %}
-  <p>
-      {% for error in field.errors %}
-      <p style="color:red">{{ error }}</p>
-      {% endfor %}
-  </p>
-  {% endfor %}
-  {% if registrationform.non_field_errors %}
-  <div style:"color:red">
-      <p>{{ registrationform.non_field_errors }}</p>
-  </div>
-  {% endif %}
+			<!-- {% if field.help_text %}
+				<small style="color: grey;">{{field.help_text}}</small>
+			{% endif %} -->
+
+			{% for error in field.errors %}
+				<p style="color: red;">{{error}}</p>
+			{% endfor %}
+		</p>
+	{% endfor %}
 
   <button class="btn-primary" type="submit">Submit</button>
 
@@ -142,4 +151,7 @@
 </div>
 
 {% endblock content %}
+
+
+
 

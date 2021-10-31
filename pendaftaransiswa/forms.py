@@ -44,9 +44,18 @@ class RegisterFormSiswa(UserCreationForm):
 		widget=forms.RadioSelect(), 
 		choices=CustomUser.PAYMENT_CHOICES)
 
+	nomor_telefon = forms.CharField(
+		max_length=13, 
+		widget=forms.TextInput(
+			attrs={'class':'form-control'}),
+			required=False)
+
+	# validasi_guru = forms.FileField(label='Validasi Pengajar', required=False)
+
+
 	class Meta:
 		model = CustomUser
-		fields = ('username', 'nama_lengkap', 'tanggal_lahir', 'jenis_kelamin', 'alamat', 'agree', 'kelas', 'mata_pelajaran', 'payment', 'email', 'password1', 'password2')
+		fields = ('username', 'nama_lengkap', 'tanggal_lahir', 'jenis_kelamin', 'alamat', 'agree', 'kelas', 'mata_pelajaran', 'payment', 'nomor_telefon', 'email', 'password1', 'password2')
 
 
 	def __init__(self, *args, **kwargs):

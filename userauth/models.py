@@ -28,7 +28,8 @@ class CustomUser(AbstractUser):
     ('Sosio', 'Sosiologi'),
     ('Sejarah', 'Sejarah'),
     ]
-    mata_pelajaran = models.CharField(max_length=225, choices=MATA_PELAJARAN_CHOICES, blank=True, null=True)
+    mata_pelajaran = models.CharField(max_length=225)
+    # , choices=MATA_PELAJARAN_CHOICES, blank=True, null=True)
 
     PAYMENT_CHOICES=[('CASH','Cash'), ('CHECK','Check'), ('CARD','Card')]
     payment = models.CharField(max_length=225, choices=PAYMENT_CHOICES, default='Card', blank=True, null=True)
