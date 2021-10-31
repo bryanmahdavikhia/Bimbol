@@ -14,7 +14,7 @@ class CustomUser(AbstractUser):
     agree = models.BooleanField(default=False)
 
     KELAS_CHOICES = [('1', '10'), ('2', '11'), ('3', '12')]
-    kelas = models.CharField(max_length=225, choices=KELAS_CHOICES, blank=True, null=True)
+    kelas = models.CharField(max_length=225, choices=KELAS_CHOICES)
 
     MATA_PELAJARAN_CHOICES = [
     ('MTK', 'Matematika'),
@@ -32,7 +32,7 @@ class CustomUser(AbstractUser):
     # , choices=MATA_PELAJARAN_CHOICES, blank=True, null=True)
 
     PAYMENT_CHOICES=[('CASH','Cash'), ('CHECK','Check'), ('CARD','Card')]
-    payment = models.CharField(max_length=225, choices=PAYMENT_CHOICES, default='Card', blank=True, null=True)
+    payment = models.CharField(max_length=225, choices=PAYMENT_CHOICES, default='Card')
 
     validasi_guru = models.FileField()
     nomor_telefon = models.CharField(max_length=100, default='')
