@@ -23,5 +23,6 @@ urlpatterns = [
     path('pendaftaranguru/', include('pendaftaranguru.urls')),
     #path('login/', include('login_mainpage.urls'))
     path('testimoni/', include('testimoni.urls')),
-    path('pendaftaransiswa/', include('pendaftaransiswa.urls'))
+    path('pendaftaransiswa/', include('pendaftaransiswa.urls')),
+    path('jadwal/', include('jadwal.urls'))
 ]

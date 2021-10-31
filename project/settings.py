@@ -61,7 +61,8 @@ INSTALLED_APPS = [
     'testimoni',
     'pendaftaranguru',
     'userauth',
-    'pendaftaransiswa'
+    'pendaftaransiswa',
+    'jadwal'
 ]
 
 MIDDLEWARE = [
