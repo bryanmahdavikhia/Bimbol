@@ -1,33 +1,33 @@
 from django.contrib.auth import authenticate, login
 from django.shortcuts import redirect, render
 from django.contrib import messages
-from django.contrib.auth.forms import UserCreationForm
 from . forms import RegisterFormGuru
 from django.contrib.auth.models import Group
 
 # Create your views here.
-def Register_guru(request):
-	if request.method == "POST":
+def register_guru(request):
+	context={}
+	if request.POST:
 		form = RegisterFormGuru(request.POST)
 		if form.is_valid():
 			form.save()
-			username = form.cleaned_data['username']
-			password = form.cleaned_data['password1']
-			user = authenticate(username=username, password=password)
+			username = form.cleaned_data.get('username').lower()
+			raw_password = form.cleaned_data.get('password1')
+			account = authenticate(username=username, password=raw_password)
 			
 			# tambahkan user ke dalam group Guru
 			group = Group.objects.get(name='Guru')
-			user.groups.add(group)
+			account.groups.add(group)
 
-			login(request, user)
-			messages.success(request, ("Registration Successful!"))
-			return redirect('home')
+			login(request, account)
+			return redirect('homeguru')
+		else:
+			context['registerform'] = form
 	else:
 		form = RegisterFormGuru()
+		context['registerform'] = form
 	
-	response =  {'registerform':form}
-
-	return render(request, 'register_guru.html', response)
+	return render(request, 'register_guru.html', context)
 
 def home(request):
 	return render(request, 'home.html', {})
