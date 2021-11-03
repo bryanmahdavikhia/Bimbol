@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Jadwal</title>
+  </head>
+  <body>
+    <table class="table table-striped table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">No.</th>
+                <th scope="col">To</th>
+                <th scope="col">From</th>
+                <th scope="col">Title</th>
+                <th scope="col">Message</th>
+            </tr>
+        </thead>
+      <!-- TODO loop from Friend model -->
+      <tbody>
+        <!-- {% for j in jadwal%}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ j.id }}</td>
+                <td>{{ j.day }}</td>
+                <td>{{ j.start|time:"H.i" }}</td>
+                <td>{{ j.end|time:"H.i" }}</td>
+            </tr>
+        {% endfor %} -->
+      </tbody>
+    </table>
+  </body>
+</html>

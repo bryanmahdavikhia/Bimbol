@@ -1,0 +1,29 @@
+<blockquote id="{{reply.id}}">
+    <p>{{reply.desc}}</p>
+    <small style="font-style: italic;">by {{reply.user.username}}</small>
+    <button class="want-reply" id="want-reply" data-replyId={{reply.id}}>
+        <p class="text-muted">Reply</p> 
+    </button>
+    <!-- <button type="submit" class="btn btn-secondary btn-sm">
+        <i class="tim-icons icon-chat-33"></i> reply
+    </button> -->
+
+    <blockquote class="reply-block-form" id="reply-form-{{reply.id}}">
+        <form action='/forum/reply' method="post" autocomplete="off">
+            {% csrf_token %}
+            <input type="hidden" name="post" value="{{post.id}}"/>
+            <input type="hidden" name="parent" value="{{reply.id}}"/>
+            {{reply_of_reply_form.desc}}
+            <button id="cancel-button" type="button" class="cancel-button btn btn-primary btn-sm btn-danger" data-replyId={{reply.id}}>Cancel</button>
+            <button id="submit" type="submit" class="btn btn-primary btn-sm" value="Submit">Reply</button>
+            <!-- <button></button>
+            <div class="form-group">
+                {{ reply_form.desc }}
+            </div> -->
+        </form>
+    </blockquote>
+
+    {% for child in reply.get_childs %}
+    {% include 'post_components.html' with reply=child %}
+    {% endfor %}
+</blockquote>

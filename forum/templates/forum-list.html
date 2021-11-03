@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="{% static 'assets/css/nucleo-icons.css' %}" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
+    <!-- BLK• CSS -->
+    <link href="{% static 'assets/css/blk-design-system.min.css' %}" rel="stylesheet">
+
+</head>
+<body>
+    {% block content %}
+    {% endblock %}
+</body>
+<script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+<script src="{% static 'script/index.js' %}" rel="text/javascript"></script>
+</html>

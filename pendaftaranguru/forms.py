@@ -1,8 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
+from userauth.models import CustomUser
 from django import forms
-from django.utils.regex_helper import Choice
-from . models import GuruUser
 
 class RegisterFormGuru(UserCreationForm):
 	nama_lengkap = forms.CharField(
@@ -39,21 +37,20 @@ class RegisterFormGuru(UserCreationForm):
 	kelas = forms.ChoiceField(
 		label='Kelas', 
 		widget=forms.RadioSelect(), 
-		choices=GuruUser.KELAS_CHOICES)
+		choices=CustomUser.KELAS_CHOICES)
 	
 	mata_pelajaran = forms.ChoiceField(
 		label='Mata Pelajaran', 
 		widget=forms.RadioSelect(), 
-		choices=GuruUser.MATA_PELAJARAN_CHOICES)
+		choices=CustomUser.MATA_PELAJARAN_CHOICES)
 	
 	validasi_guru = forms.FileField(
 		widget=forms.FileInput(
 			attrs={'class':'form-control'}))
 
 	class Meta:
-		model = User
-        # fields='__all__'
-		fields = ('username', 'nama_lengkap', 'tanggal_lahir', 'jenis_kelamin', 'alamat', 'agree', 'kelas', 'mata_pelajaran', 'email', 'password1', 'password2')
+		model = CustomUser
+		fields = ('username', 'nama_lengkap', 'nomor_telefon', 'tanggal_lahir', 'jenis_kelamin', 'alamat', 'agree', 'kelas', 'mata_pelajaran', 'email', 'password1', 'password2')
 
 	
 	def __init__(self, *args, **kwargs):
@@ -62,4 +59,20 @@ class RegisterFormGuru(UserCreationForm):
 		self.fields['username'].widget.attrs['class'] = 'form-control'
 		self.fields['password1'].widget.attrs['class'] = 'form-control'
 		self.fields['password2'].widget.attrs['class'] = 'form-control'
+	
+	def clean_email(self):
+		email = self.cleaned_data['email'].lower()
+		try:
+			account = CustomUser.objects.get(email= email)
+		except Exception as e:
+			return email
+		raise forms.ValidationError("Email {email} is already in use.")
+
+	def clean_username(self):
+		username = self.cleaned_data['username']
+		try:
+			account = CustomUser.objects.get(username=username)
+		except Exception as e:
+			return username
+		raise forms.ValidationError("Username {username} is already in use.")
 

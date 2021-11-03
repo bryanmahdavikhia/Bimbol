@@ -1,1 +1,57 @@
-<h1> ini forum </h1>
+{% extends 'base-forum.html' %}
+{% load static %}
+
+{% block content %}
+<link href="{% static 'css/style-forum.css' %}" rel="stylesheet">
+<div class="container">
+    <h1 class="title"> Forum Diskusi </h1>
+    <div class="row">
+        <div class="col-sm">
+            {% for post in forum %}
+            <a href="{% url 'post' post.id %}">
+            <div class="card" id="asd">
+                <div class="card-body">
+                    <p class="card-list-title">
+                        <p class="font-weight-bold">{{post.title}}</p>
+                    </p>
+                    <!-- <p class="card-list-desc">
+                        {{post.desc}}
+                    </p> -->
+                    <p>
+                        <p class="text-muted">create by {{post.author.username}} {{ post.created|timesince }} ago</p>
+                    </p>
+                </div>
+            </div>    
+            </a>
+            {% endfor %}
+        </div>
+        <div class="col-sm">
+            <h3>
+                Add Forum<br>
+                <small class="text-muted">Login required</small>
+            </h3>
+            
+            <form action='' method="post" autocomplete="off">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    {{ form.title }}
+                </div>
+                <div class="form-group">
+                    <label for="desc">Description</label>
+                    {{ form.desc }}
+                </div>
+
+                <button id="submit" type="submit" class="btn btn-primary" value="Submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'script/index.js' %}" rel="text/javascript"></script>
+<script>
+    var loged = "{{ loged|safe }}"
+</script>
+{% endblock %}

@@ -1,8 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 from django import forms
-from django.utils.regex_helper import Choice
-from . models import SiswaUser
+from userauth.models import CustomUser
 
 class RegisterFormSiswa(UserCreationForm):
 	email = forms.EmailField(
@@ -34,22 +32,30 @@ class RegisterFormSiswa(UserCreationForm):
 	kelas = forms.ChoiceField(
 		label='Kelas', 
 		widget=forms.RadioSelect(), 
-		choices=SiswaUser.KELAS_CHOICES)
+		choices=CustomUser.KELAS_CHOICES)
 	
 	mata_pelajaran = forms.MultipleChoiceField(
 		label='Mata Pelajaran', 
 		widget=forms.CheckboxSelectMultiple(), 
-		choices=SiswaUser.MATA_PELAJARAN_CHOICES)
+		choices=CustomUser.MATA_PELAJARAN_CHOICES)
 
 	payment = forms.ChoiceField(
 		label='Payment Details', 
 		widget=forms.RadioSelect(), 
-		choices=SiswaUser.PAYMENT_CHOICES)
+		choices=CustomUser.PAYMENT_CHOICES)
+
+	nomor_telefon = forms.CharField(
+		max_length=13, 
+		widget=forms.TextInput(
+			attrs={'class':'form-control'}),
+			required=False)
+
+	# validasi_guru = forms.FileField(label='Validasi Pengajar', required=False)
+
 
 	class Meta:
-		model = User
-        # fields='__all__'
-		fields = ('username', 'nama_lengkap', 'tanggal_lahir', 'jenis_kelamin', 'alamat', 'agree', 'kelas', 'mata_pelajaran', 'payment', 'email', 'password1', 'password2')
+		model = CustomUser
+		fields = ('username', 'nama_lengkap', 'tanggal_lahir', 'jenis_kelamin', 'alamat', 'agree', 'kelas', 'mata_pelajaran', 'payment', 'nomor_telefon', 'email', 'password1', 'password2')
 
 
 	def __init__(self, *args, **kwargs):
@@ -58,4 +64,22 @@ class RegisterFormSiswa(UserCreationForm):
 		self.fields['username'].widget.attrs['class'] = 'form-control'
 		self.fields['password1'].widget.attrs['class'] = 'form-control'
 		self.fields['password2'].widget.attrs['class'] = 'form-control'
+	
+	def clean_email(self):
+		email = self.cleaned_data['email'].lower()
+		try:
+			account = CustomUser.objects.get(email= email)
+		except Exception as e:
+			return email
+		raise forms.ValidationError("Email {email} is already in use.")
+
+	def clean_username(self):
+		username = self.cleaned_data['username']
+		try:
+			account = CustomUser.objects.get(username=username)
+		except Exception as e:
+			return username
+		raise forms.ValidationError("Username {username} is already in use.")
+
+	
 
