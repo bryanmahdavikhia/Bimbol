@@ -19,6 +19,8 @@ def jadwal_json(request):
 def jadwal(request):
     failed = False
     jadwal = Jadwal.objects.all()
+    for x in jadwal:
+        print(x.id)
     if request.method == 'POST':
         form = JadwalForm(request.POST)
         if form.is_valid():

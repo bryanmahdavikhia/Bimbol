@@ -2,108 +2,117 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet">
-    <link href="/static/assets/css/blk-design-system.min.css" rel="stylesheet">
-    <title>Jadwal</title>
-    <style>
-        option {background-color: white; color: black;}
-    </style>
+  <meta charset="UTF-8" />
+  <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet">
+  <link href="/static/assets/css/blk-design-system.min.css" rel="stylesheet">
+  <title>Jadwal</title>
+  <style>
+    option {
+      background-color: white;
+      color: black;
+    }
+  </style>
 </head>
 
 <body>
-    <div class="container">
-        <h1 class="title"> Jadwal Kelas </h1>
-        <div class="row">
-            <div class="col-sm">
-                {% for x in jadwal %}
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="card-list-title">
-                            <p class="font-weight-bold">{{x.title}} | Kelas {{x.kelas}}</p>
-                            </p>
-                            <!-- <p class="card-list-desc">
-                            {{post.desc}}
-                        </p> -->
-                            <p>
-                            <p>{{x.day}}, {{x.start}} - {{x.end}}</p>
-                            <a href="{{x.link}}" class="stretched-link">Link</a>
-                            <p>{{x.desc}}</p>
-                            </p>
-                        </div>
-                    </div>
-                {% endfor %}
+  <div class="container">
+    <h1 class="title"> Jadwal Kelas </h1>
+    <div class="row">
+      <div class="col-sm">
+        {% if jadwal %}
+        {% for x in jadwal %}
+        <a href="#" onclick="myFunction()">
+          <div class="card">
+            <div class="card-body">
+              <p class="card-list-title">
+              <p class="font-weight-bold">{{x.title}} | Kelas {{x.kelas}}</p>
+              </p>
+              <p>
+              <p>{{x.day}}, {{x.start}} - {{x.end}}</p>
+              <a href="{{x.link}}" class="stretched-link">Link</a>
+              <p>{{x.desc}}</p>
+              </p>
             </div>
-            <div class="col-sm">
-                <h3>
-                    Tambah Jadwal<br>
-                    <small class="text-muted">Login required</small>
-                </h3>
+          </div>
+        </a>
+        {% endfor %}
+        {% else %}
+        <h3>Belum ada jadwal</h3>
+        {% endif %}
+      </div>
+      <div class="col-sm">
+        <h3>
+          Tambah Jadwal<br>
+          <small class="text-muted">Login required</small>
+        </h3>
 
-                <form action = "" method="POST">
-                    {% csrf_token %}
-                    
-                    <div class="form-row">
-                      <div class="form-group col-md-8">
-                        <label for="title">Nama Jadwal</label>
-                        <input type="text" class="form-control" name="title" required>
-                      </div>
-                      <div class="form-group col-md-4">
-                        <label for="kelas">Kelas</label>
-                        <select id="inputState" class="form-control" name="kelas">
-                          {% for kelas in form.kelas%}
-                            {{kelas.tag}}
-                            <label for="{{kelas.id_for_label}}">
-                              {{kelas.choice_label}}
-                            </label>
-                          {% endfor %}
-                        </select>
-                      </div>
-                    </div>
-                    <div class="form-row">
-                      <div class="form-group col-md-4">
-                        <label for="day">Hari</label>
-                        <select id="inputState" class="form-control" name="day">
-                          {% for day in form.day%}
-                            {{day.tag}}
-                            <label for="{{day.id_for_label}}">
-                              {{day.choice_label}}
-                            </label>
-                          {% endfor %}
-                        </select>
-                      </div>
-                      <div class="form-group col-md-4">
-                        <label for="start">Jam Mulai</label>
-                        <input type="time" id="inputMDEx1" class="form-control" name="start">
-                      </div>
-                      <div class="form-group col-md-4">
-                        <label for="start">Jam Selesai</label>
-                        <input type="time" id="inputMDEx1" class="form-control" name="end">
-                      </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-12">
-                            <label for="link">Link</label>
-                            <input type="url" class="form-control" id="link" name="link">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-12">
-                            <label for="desc">Deskripsi</label>
-                            <textarea class="form-control" id="desc" rows="3" name="desc"></textarea>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary" value="submit">Submit</button>
-                    
-                </form>
-                
+        <form action="" method="POST">
+          {% csrf_token %}
+
+          <div class="form-row">
+            <div class="form-group col-md-8">
+              <label for="title">Nama Jadwal</label>
+              <input id="nama" type="text" class="form-control" name="title" required>
             </div>
-        </div>
+            <div class="form-group col-md-4">
+              <label for="kelas">Kelas</label>
+              <select id="inputState" class="form-control" name="kelas">
+                {% for kelas in form.kelas%}
+                {{kelas.tag}}
+                <label for="{{kelas.id_for_label}}">
+                  {{kelas.choice_label}}
+                </label>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="day">Hari</label>
+              <select id="inputState" class="form-control" name="day">
+                {% for day in form.day%}
+                {{day.tag}}
+                <label for="{{day.id_for_label}}">
+                  {{day.choice_label}}
+                </label>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="start">Jam Mulai</label>
+              <input type="time" id="inputMDEx1" class="form-control" name="start">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="start">Jam Selesai</label>
+              <input type="time" id="inputMDEx1" class="form-control" name="end">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="link">Link</label>
+              <input type="url" class="form-control" id="link" name="link">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="desc">Deskripsi</label>
+              <textarea class="form-control" id="desc" rows="3" name="desc"></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" value="submit">Submit</button>
+
+        </form>
+
+      </div>
     </div>
+  </div>
 </body>
-<script
-  src="https://code.jquery.com/jquery-3.6.0.js"
-  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-  crossorigin="anonymous"></script>
+<script>
+function myFunction() {
+  console.log(document.getElementById('nama').value);
+  document.getElementById("nama").value = "halo world";
+  console.log(document.getElementById('nama').value);
+}
+</script>
 
 </html>
