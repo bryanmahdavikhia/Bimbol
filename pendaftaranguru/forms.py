@@ -15,7 +15,8 @@ class RegisterFormGuru(UserCreationForm):
 	nomor_telefon = forms.CharField(
 		max_length=100, 
 		widget=forms.TextInput(
-			attrs={'class':'form-control'}))
+			attrs={'class':'form-control'}),
+			required=False)
 
 	TAHUN = range(1961, 2002, 1)
 	tanggal_lahir = forms.DateField(
@@ -46,7 +47,8 @@ class RegisterFormGuru(UserCreationForm):
 	
 	validasi_guru = forms.FileField(
 		widget=forms.FileInput(
-			attrs={'class':'form-control'}))
+			attrs={'class':'form-control'}),
+			required=False)
 
 	class Meta:
 		model = CustomUser
