@@ -26,7 +26,6 @@ def register_guru(request):
 	else:
 		form = RegisterFormGuru()
 		context['registerform'] = form
-	
 	return render(request, 'register_guru.html', context)
 
 def home(request):
