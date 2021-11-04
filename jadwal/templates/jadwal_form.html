@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Jadwal</title>
+  </head>
+  <body>
+    <h4>Add Jadwal</h4>
+    <form action = "" method="POST">
+        {% csrf_token %}
+        
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="title">Nama Jadwal</label>
+            <input type="text" class="form-control" name="title" required>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="kelas">Kelas</label>
+            <select id="inputState" class="form-control" name="kelas">
+              {% for kelas in form.kelas%}
+                {{kelas.tag}}
+                <label for="{{kelas.id_for_label}}">
+                  {{kelas.choice_label}}
+                </label>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-2">
+            <label for="day">Hari</label>
+            <select id="inputState" class="form-control" name="day">
+              {% for day in form.day%}
+                {{day.tag}}
+                <label for="{{day.id_for_label}}">
+                  {{day.choice_label}}
+                </label>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="start">Jam Mulai</label>
+            <input type="time" id="inputMDEx1" class="form-control" name="start">
+          </div>
+          <div class="form-group col-md-2">
+            <label for="start">Jam Selesai</label>
+            <input type="time" id="inputMDEx1" class="form-control" name="end">
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="link">Link</label>
+          <input type="url" class="form-control" id="link" name="link">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="desc">Deskripsi</label>
+          <textarea class="form-control" id="desc" rows="3" name="desc"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" value="submit">Submit</button>
+    </form>
+    {% if failed %}
+       <p>Pengisian gagal</p>
+    {% endif %}
+  </body>
+</html>

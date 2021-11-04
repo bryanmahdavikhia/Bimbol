@@ -16,18 +16,18 @@ def jadwal_json(request):
     data = serializers.serialize('json', Jadwal.objects.all())
     return HttpResponse(data, content_type="application/json")
 
-# def add_note(request):
-#     failed = False
-#     if request.method == 'POST':
-#         form = NoteForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return HttpResponseRedirect('/lab-4')
-#         else:
-#             failed = True
+def add_jadwal(request):
+    failed = False
+    if request.method == 'POST':
+        form = JadwalForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/jadwal')
+        else:
+            failed = True
     
-#     form = NoteForm()
-#     return render(request, 'lab4_form.html', {'form':form, 'failed':failed})
+    form = JadwalForm()
+    return render(request, 'jadwal_form.html', {'form':form, 'failed':failed})
 
 # def note_list(request):
 #     notes = Note.objects.all()  # TODO Implement this
