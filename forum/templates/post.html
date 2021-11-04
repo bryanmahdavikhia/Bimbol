@@ -1,0 +1,47 @@
+{% extends 'base-forum.html' %}
+{% load static %}
+
+{% block content %}
+<link href="{% static 'css/style-forum.css' %}" rel="stylesheet">
+<div class="container">
+    <h1 class="title"> Forum Diskusi </h1>
+    <div class="row">
+        <div class="col-8">
+            <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title" id="post-title"></h4>
+                  <p class="card-text" id="post-desc"></p>
+                  <p class="text-muted" id="post-author">Author: </p>
+                </div>
+            </div>
+            
+            {% if not post.replies.all %}
+                <p>no replies yet</p>
+            {% else %}
+                {% for reply in post.get_replies %}
+                    {% include 'post_components.html' with reply=reply %}
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="col-4">
+            <h3>
+                Make Reply<br>
+                <!-- <small class="text-muted">Login required</small> -->
+            </h3>
+            
+            <form action='' method="post" autocomplete="off" id="submit-reply">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ reply_form.desc }}
+                </div>
+
+                <button id="submit" type="submit" class="btn btn-primary" value="Submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'script/reply.js' %}" rel="text/javascript"></script>
+{% endblock %}
