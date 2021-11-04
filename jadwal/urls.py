@@ -1,9 +1,9 @@
 from django.urls import path
-from .views import index, jadwal_json
+from .views import jadwal_json, jadwal
 
 urlpatterns = [
-    path('', index, name='index'),
+    # path('', index, name='index'),
     path('json', jadwal_json, name='json'),
-    # path('add-note', add_note, name='add_note'),
+    path('', jadwal, name='add_jadwal'),
     # path('note-list', note_list, name='note_list')
 ]

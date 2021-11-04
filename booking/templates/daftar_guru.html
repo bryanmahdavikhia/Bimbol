@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %} 
+<link rel="stylesheet" href="{% static 'style.css' %}">
+{% comment %} <div class="container">
+  <div class="shadow p-4 mb-5 bg-body rounded">
+<h1>Daftar Guru</h1><br>
+<div class="card-columns">
+        {% for i in guru %}   
+        <div class="card">
+          <h4 class="card-header" style="background-color: #E5DCC3; color: #393E46;" >{{ i.nama_lengkap }}</h4>
+          <div class="card-body">
+            <h6 class="card-title"></h6>
+            <h6 class="card-title">{{ i.mata_pelajaran }}</h6>
+            <p class="card-text">{{ i.kelas}} </p>
+          </div>
+        </div>
+        <br>
+        {% endfor %}  
+    </div>
+</div>
+</div> {% endcomment %}
+<div class="container">
+  <div class="shadow p-4 mb-5 bg-body rounded">
+  <h1>Daftar Guru</h1><br>
+  
+  <div class="row">
+  {%for i in guru%}
+  <div class="col-sm-3">
+<div class="card" style="width: 15rem;">
+<img class="card-img" src="{% static 'teacher-icon.png' %}" width="600" height="250" style="object-fit: cover;"/>
+  <div class="card-body">
+    <h5 class="card-title">{{ i.nama_lengkap }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{ i.jenis_kelamin }}</h6>
+    <p class="card-text">{{i.mata_pelajaran}}</p>
+    <a href="#" class="btn btn-primary">Book</a>
+  </div>
+</div>
+</div>
+{% endfor %}
+</div>
+</div>
+</div>
+  
+{% endblock content %}

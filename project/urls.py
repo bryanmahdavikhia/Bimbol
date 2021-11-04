@@ -21,8 +21,10 @@ urlpatterns = [
     path('', include('main.urls')),
     path('forum/', include('forum.urls')),
     path('pendaftaranguru/', include('pendaftaranguru.urls')),
+    path('pendaftaranguru/', include('django.contrib.auth.urls')),
     #path('login/', include('login_mainpage.urls'))
     path('testimoni/', include('testimoni.urls')),
     path('pendaftaransiswa/', include('pendaftaransiswa.urls')),
-    path('jadwal/', include('jadwal.urls'))
+    path('jadwal/', include('jadwal.urls')),
+    path('booking/', include('booking.urls')),
 ]

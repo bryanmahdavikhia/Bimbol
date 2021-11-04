@@ -1,0 +1,39 @@
+{% extends 'testi_template.html' %}
+
+{% block content %}	
+
+<div class="container">
+  <div class="shadow p-4 mb-5 bg-body rounded"> 
+  <h1>Tambah Testimoni</h1>
+  <br>
+<form method="POST">
+{% csrf_token %}
+    <div class="form-group">
+        {{form.nama.label_tag}}
+        {{form.nama}} 
+    </div>
+
+    <br>
+
+    <div class="form-group">
+        {{form.kelas.label_tag}}
+        {{form.kelas}}
+    </div>
+
+    <br>
+
+    <div class="form-group">
+        {{form.testimoni.label_tag}}
+        {{form.testimoni}}
+    </div>
+
+    <br>
+
+
+  <button class="btn-primary" type="submit">Submit</button>
+
+</form>
+</div>
+</div>
+
+{% endblock content %}
