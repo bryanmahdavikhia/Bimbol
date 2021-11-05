@@ -10,6 +10,7 @@ def register_guru(request):
 	context={}
 	if request.is_ajax():
 		form = RegisterFormGuru(request.POST)
+		print(form.errors.as_data())
 		if form.is_valid():
 			form.save()
 			username = form.cleaned_data.get('username').lower()
