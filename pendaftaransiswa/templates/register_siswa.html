@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}	
 
 <div class="container">
@@ -7,10 +9,23 @@
   <h1>Pendaftaran Siswa</h1>
 <form method="POST">
 {% csrf_token %} 
-  <div class="form-group">
+  <div class="form-group" id='usernameField'>
       {{registerform.username.label_tag}}
       {{registerform.username}}
   </div>
+
+  <div class="invalid_feedback invalid-feedback" style="display:none"></div>
+  <!-- <p class="text-sm text-success usernameSuccessOutput"></p> -->
+      
+  <br>
+
+  <div class="form-group" id='emailField'>
+    {{registerform.email.label_tag}}
+    {{registerform.email}}
+  </div>
+
+  <div class="emailFeedBackArea invalid-feedback" style="display:none"></div>
+  <!-- <p class="text-sm text-success usernameSuccessOutput"></p> -->
 
   <br>
 
@@ -27,19 +42,13 @@
   </div>
 
       
-  <br>
-
-  <div class="form-group">
-    {{registerform.email.label_tag}}
-    {{registerform.email}}
-  </div>
-      
   <br/>
 
   <div class="form-group">
     {{registerform.nama_lengkap.label_tag}}
     {{registerform.nama_lengkap}}
   </div>
+  <p style="color: red;">{{nama_lengkap.error}}</p>
 
   <br>
 
@@ -132,9 +141,9 @@
   {% for field in registerform %}
 		<p>
 			<!-- {{field.label_tag}}
-			{{field}} -->
+			{{field}} 
 
-			<!-- {% if field.help_text %}
+			 {% if field.help_text %}
 				<small style="color: grey;">{{field.help_text}}</small>
 			{% endif %} -->
 
@@ -149,6 +158,8 @@
 </form>
 </div>
 </div>
+
+<script src="{% static 'register.js' %}"></script>
 
 {% endblock content %}
 
