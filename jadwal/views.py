@@ -20,9 +20,8 @@ def is_guru(user):
 @login_required(login_url='/pendaftaranguru/')
 def jadwal(request, pk = None):
     if not is_guru(request.user):
-        HttpResponseRedirect('/')
+        return render(request, 'jadwal.html', {'is_guru':False})
     
-    failed = False
     edit = False
     jadwal = Jadwal.objects.all().filter(guru=request.user)
     
@@ -40,6 +39,8 @@ def jadwal(request, pk = None):
             if form.is_valid():
                 form.save()
                 return HttpResponseRedirect('/jadwal')
+            else:
+                pass
 
     # Create Jadwal
     else:
@@ -51,12 +52,12 @@ def jadwal(request, pk = None):
                 form.save()
                 return HttpResponseRedirect('/jadwal')
             else:
-                failed = True
-        
-        form = JadwalForm()
-        obj = None
+                obj = None
+        else:
+            form = JadwalForm()
+            obj = None
 
-    return render(request, 'jadwal.html', {'form':form, 'failed':failed, 'jadwal': jadwal, 'obj':obj, 'edit':edit})
+    return render(request, 'jadwal.html', {'is_guru':True, 'form':form, 'jadwal': jadwal, 'obj':obj, 'edit':edit})
 
 def filter_jadwal(request):
     kelas=request.GET.getlist('kelas[]')

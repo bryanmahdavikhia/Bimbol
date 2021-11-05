@@ -2,10 +2,11 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect, render
-from django.http.response import HttpResponseRedirect
+from django.http.response import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib import messages
 from userauth.models import CustomUser
+from django.core import serializers
 from django.contrib.auth.decorators import login_required
 
 from .models import Saran
@@ -51,3 +52,9 @@ def add_saran(request):
         return HttpResponseRedirect('/')
     context['form'] = form
     return render(request, 'main/home.html', context)
+
+@login_required(login_url='/login')
+def json(request):
+    modelSaran = Saran.objects.all()
+    data = serializers.serialize('json', modelSaran)
+    return HttpResponse(data, content_type="application/json")

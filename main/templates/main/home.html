@@ -97,6 +97,9 @@
                             <a href="https://cs.ui.ac.id/" class="dropdown-item">
                                 Tentang Fasilkom UI
                             </a>
+                            <a href="/forum" class="dropdown-item">
+                                Forum BIMBOL
+                            </a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -377,9 +380,10 @@
       </div>
   </nav>
 
-  <div class="container">
-    <form action="" method="POST" style= "max-width:620px; margin:60px auto;"> {% csrf_token %}      
-      <textarea name="Message" class="input" placeholder="Apa ada saran untuk BIMBOL?"></textarea>
+  <div>
+    <form action="" method="POST" style="max-width:620px; margin:60px auto;">
+        {% csrf_token %}      
+      <textarea name="Message" class="inputSaran" placeholder="Apa ada saran untuk BIMBOL?"></textarea>
       <input type="submit" value="SUBMIT"/>
     </form>
   </div>
