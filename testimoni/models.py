@@ -1,9 +1,11 @@
 from django.db import models
+from userauth.models import CustomUser as siswa
+
 
 # Create your models here.
 class Testimoni(models.Model):
 
-    nama = models.CharField(max_length=100)
+    nama = models.CharField(max_length=100, default=siswa.nama_lengkap)
 
     PILIHAN_KELAS = [
         ('10 IPA', '10 IPA'), 
@@ -13,8 +15,9 @@ class Testimoni(models.Model):
         ('12 IPA', '12 IPA'),
         ('12 IPS', '12 IPS')
         ]
-    kelas = models.CharField(max_length=100, choices=PILIHAN_KELAS)
+    kelas = models.CharField(max_length=100, choices=PILIHAN_KELAS, default=siswa.kelas)
 
     testimoni = models.TextField()
+
 
 

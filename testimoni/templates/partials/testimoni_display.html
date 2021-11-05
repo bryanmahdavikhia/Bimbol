@@ -1,0 +1,24 @@
+{% if testimonial %}
+{% for testi in testimonial %}
+<div class="card" id="mycard" >
+<blockquote class="blockquote mb-0 card-body">
+    <div class="card-body">
+        <p>" {{testi.testimoni}} "</p>
+            <footer class="blockquote-footer">
+                <small class="text-muted">
+                    {{testi.nama}} <cite title="Source Title"> kelas {{testi.kelas}}</cite>
+                    
+                    <a href="{% url 'testimoni_update' testi.id %}"> 
+                        (Edit)
+                    </a>
+
+                    
+                    <a href="{% url 'testimoni_delete' testi.id  %}" class="link-delete text-danger">(Delete)</a>
+                </small>
+            </footer>
+    </div>
+</blockquote>
+</div>  
+          
+{% endfor %}
+{% endif %}
