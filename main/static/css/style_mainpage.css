@@ -20813,7 +20813,7 @@ input.datetimepicker[data-color="yellow"]+.bootstrap-datetimepicker-widget.dropd
 
 ::placeholder {color:white}
 
-[type="submitSaran"] {
+[type="submit"] {
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
   width: 100%;
   background:#59C3C3;
@@ -20828,6 +20828,6 @@ input.datetimepicker[data-color="yellow"]+.bootstrap-datetimepicker-widget.dropd
   margin-top:-4px;
   font-weight:700;
 }
-[type="submitSaran"]:hover { color:#59C3C3; background:white; }
+[type="submit"]:hover { color:#59C3C3; background:white; }
 
 /*# sourceMappingURL=kit-free.css.map */
