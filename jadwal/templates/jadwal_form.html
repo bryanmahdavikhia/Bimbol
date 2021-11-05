@@ -63,7 +63,7 @@
     {% else %}
     <button type="submit" class="btn btn-primary" value="submit">Submit</button>
     {% endif %}
-    {% for err in form.non_field_errors %}
+    {% for err in form.end.errors %}
     <div class="text-danger">{{err}}</div>
     {% endfor %}
   </form>

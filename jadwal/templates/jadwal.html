@@ -28,6 +28,7 @@
 <body>
   <div class="container">
     {% include 'navbar.html' %}
+    {% if is_guru %}
     <h1 class="title"> Jadwal Kelas </h1>
     <div class="row">
       <div class="col-md-2">
@@ -48,6 +49,8 @@
         {% include 'jadwal_form.html' %}
       </div>
     </div>
+    {% else %}
+    {% endif %}
   </div>
 </body>
 

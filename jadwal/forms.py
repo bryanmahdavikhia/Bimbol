@@ -11,7 +11,7 @@ class JadwalForm(ModelForm):
             'end': TimeInput(format='%H:%M'),
             'title': Textarea(attrs={'class': "form-control"})
         }
-    def clean(self):
+    def clean_end(self):
         end = self.cleaned_data['end']
         start = self.cleaned_data['start']
         if start > end:
