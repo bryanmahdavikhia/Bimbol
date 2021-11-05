@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %} 
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<div class="container">
+  <div class="shadow p-4 mb-5 bg-body rounded">
+  <h1>Daftar Guru</h1><br>
+  <form method="POST" action="" id="formbook"> {% csrf_token %}
+        {{ booking_guru.as_p }}
+
+        <input type ="submit" value="Submit">
+ </form>
+<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+<script type='text/javascript'>
+
+    const form = document.getElementById('formbook');
+    form.addEventListener("submit", submitHandler);
+
+    function submitHandler(e) {
+      e.preventDefault();
+      $.ajax({
+        type:"POST",
+        url         : '{% url 'booking guru' %}',
+        data: $('#formbook').serialize(),
+        dataType: 'json',
+        success: function(data){
+          if(data.msg == 'Success'){
+            alert("Berhasil Booking");
+          }
+        }
+      })
+    }
+
+  </script>
+
+
+  </div>
+</div>
+
+{% endblock content %}
