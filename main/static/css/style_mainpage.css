@@ -20793,7 +20793,7 @@ input.datetimepicker[data-color="yellow"]+.bootstrap-datetimepicker-widget.dropd
 .card-chart .dropdown .btn {
   margin: 0;
 }
-.containerForm {
+.placeForForm {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -20819,7 +20819,5 @@ input.datetimepicker[data-color="yellow"]+.bootstrap-datetimepicker-widget.dropd
 }
 
 ::placeholder {color:white}
-
-[type="submit"]:hover { color:#59C3C3; background:white; }
 
 /*# sourceMappingURL=kit-free.css.map */
