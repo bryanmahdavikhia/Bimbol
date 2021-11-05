@@ -13,7 +13,8 @@
     <div class="card-body">
       <form class="form" method="POST">
         {% csrf_token %} 
-        {{registerform.username.label_tag}}
+        <!-- {{registerform.username.label_tag}} -->
+        <label for="username">Username*</label> 
         <div class="input-group"  id="usernameField">
           <div class="input-group-prepend">
             <div class="input-group-text">
@@ -26,7 +27,8 @@
 
         <br>
 
-        {{ registerform.nama_lengkap.label_tag }}
+        <!-- {{ registerform.nama_lengkap.label_tag }} -->
+        <label for="nama_lengkap">Full Name*</label> 
         <div class="input-group">
           <div class="input-group-prepend">
             <div class="input-group-text">
@@ -38,7 +40,8 @@
 
         <br>
 
-        {{registerform.email.label_tag}}
+        <!-- {{registerform.email.label_tag}} -->
+        <label for="email">Email*</label> 
         <div class="input-group" id="emailField">
           <div class="input-group-prepend">
             <div class="input-group-text">
@@ -51,7 +54,8 @@
 
         <br>
 
-        {{ registerform.password1.label_tag}}
+        <!-- {{ registerform.password1.label_tag}} -->
+        <label for="password1">Password*</label> 
         <div class="input-group">
           <div class="input-group-prepend">
             <div class="input-group-text">
@@ -63,7 +67,8 @@
 
         <br>
 
-        {{ registerform.password2.label_tag}}
+        <!-- {{ registerform.password2.label_tag}} -->
+        <label for="password2">Password Confirmation*</label> 
         <div class="input-group">
           <div class="input-group-prepend">
             <div class="input-group-text">
@@ -76,7 +81,7 @@
         <br>
 
         <!-- {{ registerform.nomor_telefon.label_tag}} -->
-        <label for="nomor_telefon">Telephone Number:</label> 
+        <label for="nomor_telefon">Telephone Number*</label> 
         <div class="input-group">
           <div class="input-group-prepend">
             <div class="input-group-text">
@@ -90,7 +95,7 @@
 
         <div class="form-group">
           <!-- {{registerform.tanggal_lahir.label_tag}} -->
-          <label for="tanggal_lahir">Birthdate:</label> 
+          <label for="tanggal_lahir">Birthdate*</label> 
           <div class="form-row">
             {{registerform.tanggal_lahir}}
           </div>
@@ -100,7 +105,7 @@
       
         <div class="form-group">
           <!-- {{registerform.kelas.label_tag}} -->
-          <label for="kelas">Grade:</label> 
+          <label for="kelas">Grade*</label> 
           {% for kelas in registerform.kelas %}
             <div class="form-group">
               {{kelas.tag}}
@@ -114,7 +119,8 @@
           <br>
 
           <div class="form-group">
-            {{registerform.mata_pelajaran.label_tag}}
+            <!-- {{registerform.mata_pelajaran.label_tag}} -->
+            <label for="mata_pelajaran">Subjects*</label> 
             {% for mata_pelajaran in registerform.mata_pelajaran %}
               <div class="form-group">
                 {{mata_pelajaran.tag}}
@@ -128,7 +134,7 @@
           <br>
 
         <!-- {{ registerform.alamat.label_tag}} -->
-        <label for="alamat">Address:</label> 
+        <label for="alamat">Address*</label> 
         <div class="input-group">
           <div class="input-group-prepend">
             <div class="input-group-text">
@@ -142,7 +148,7 @@
         
         <div class="form-group">
           <!-- {{registerform.jenis_kelamin.label_tag}} -->
-          <label for="jenis_kelamin">Gender:</label> 
+          <label for="jenis_kelamin">Gender*</label> 
           {% for jenis_kelamin in registerform.jenis_kelamin %}
             <div class="form-group">
               {{jenis_kelamin.tag}}
@@ -157,7 +163,7 @@
       
         <div class="form-group">
           <!-- {{registerform.payment.label_tag}} -->
-          <label for="payment">Payment Details:</label>
+          <label for="payment">Payment Details*</label>
           {% for payment in registerform.payment %}
             <div class="form-group">
               {{payment.tag}}
@@ -179,7 +185,7 @@
         <br> 
 
         <!-- <button id="submit" type="submit" class="btn btn-primary" value="Submit" form="registerform">Get Started</button> -->
-        <button class="btn-primary" type="submit">Submit</button>
+        <button class="btn btn-primary btn-round btn-lg" type="submit">Get Started</button>
 
         {% for field in registerform %}
 		<p>
@@ -188,9 +194,9 @@
 
 			 {% if field.help_text %}
 				<small style="color: grey;">{{field.help_text}}</small>
-			{% endif %} -->
+			{% endif %}  -->
 
-			{% for error in field.errors %}
+			{% for error in field.errors %}</p>
 				<p style="color: red;">{{error}}</p>
 			{% endfor %}
 		</p>
@@ -249,5 +255,5 @@
 {% endblock %}
 
 {% block script %}
-<script src="{% static 'register.js' %}"></script>
+<script src="{% static 'js/register.js' %}"></script>
 {% endblock %}

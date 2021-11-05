@@ -14,7 +14,7 @@ class CustomUser(AbstractUser):
     tanggal_lahir = models.DateField(blank=True, null=True)
     # phone_regex = RegexValidator(regex=r"^\+")
 
-    JENIS_KELAMIN_CHOICES = [('pria', 'pria'), ('wanita', 'wanita')]
+    JENIS_KELAMIN_CHOICES = [('p', 'pria'), ('w', 'wanita')]
     jenis_kelamin = models.CharField(max_length=30, choices=JENIS_KELAMIN_CHOICES, blank=True, null=True)
     alamat = models.TextField(max_length=100, blank=True, null=True)
     agree = models.BooleanField(default=False)
@@ -96,6 +96,4 @@ class CustomUser(AbstractUser):
 
 #     def __str__(self):
 #         return self.username
-
-
 

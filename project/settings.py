@@ -58,12 +58,12 @@ INSTALLED_APPS = [
     'main',
     'forum',
     'login_mainpage',
-    'testimoni',
+    # 'testimoni',
     'pendaftaranguru',
     'userauth',
     'pendaftaransiswa',
     'jadwal',
-    'booking',
+    # 'booking',
 ]
 
 MIDDLEWARE = [
@@ -174,3 +174,6 @@ for directory in [*STATICFILES_DIRS, STATIC_ROOT]:
 # Enable compression and caching features of whitenoise.
 # You can remove this if it causes problems on your setup.
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+LOGIN_REDIRECT_URL = '/pendaftaransiswa/home/'
+LOGIN_URL = '/login'
