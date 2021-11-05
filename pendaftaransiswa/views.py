@@ -54,6 +54,8 @@ def register_siswa(request):
 		form = RegisterFormSiswa()
 		context['registerform'] = form
 	return render(request, 'register_siswa.html', context)
+	# return render(request, 'index_siswa.html', context)
+	# return render(request, 'registration.html', context)
 
 def home(request):
 	return render(request, 'home.html', {})
