@@ -1,6 +1,6 @@
 from django.contrib.auth import authenticate, login
 from django.http.response import JsonResponse
-from django.shortcuts import SupportsGetAbsoluteUrl, redirect, render
+from django.shortcuts import redirect, render
 from django.contrib import messages
 from . forms import RegisterFormGuru
 from django.contrib.auth.models import Group
