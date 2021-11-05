@@ -6,7 +6,7 @@
   <div class="shadow p-4 mb-5 bg-body rounded"> 
   <h1>Pendaftaran Guru</h1>
 <form method="POST" > 
-{% csrf_token %} 
+  {% csrf_token %}
   <div class="form-group">
     {{registerform.username.label_tag}}
     {{registerform.username}}
@@ -129,9 +129,13 @@
 
   <br>
   <button class="btn-primary" type="submit">Submit</button>
-
 </form>
 </div>
 </div>
+
+
+
+
+
 
 {% endblock content %}

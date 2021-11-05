@@ -63,7 +63,7 @@ INSTALLED_APPS = [
     'userauth',
     'pendaftaransiswa',
     'jadwal',
-    'booking',
+    'booking'
 ]
 
 MIDDLEWARE = [

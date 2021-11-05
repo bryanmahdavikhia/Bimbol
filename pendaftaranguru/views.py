@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate, login
+from django.http.response import JsonResponse
 from django.shortcuts import redirect, render
 from django.contrib import messages
 from . forms import RegisterFormGuru
@@ -20,9 +21,10 @@ def register_guru(request):
 			account.groups.add(group)
 
 			login(request, account)
-			return redirect('homeguru')
+			return redirect('pendaftaranguru')
 		else:
 			context['registerform'] = form
+		
 	else:
 		form = RegisterFormGuru()
 		context['registerform'] = form
