@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import response, JsonResponse
-# from userauth.models import CustomUser
+from userauth.models import CustomUser
 from django.contrib.auth.models import Group
 from django.contrib import messages
 from .forms import BookForm
@@ -22,7 +22,7 @@ def booking_guru(request):
     booking_guru = BookForm()
     if request.is_ajax():
         booking_guru = BookForm(request.POST)
-        guru = CustomUser.objects.get(nama_lengkap = request.POST.get("guru"))
+        guruu = CustomUser.objects.get(nama_lengkap = request.POST.get("guru"))
         selesai = request.POST.get("selesai")
 
         booking_guru = Booking.objects.create(guru=guruu, selesai=selesai)
