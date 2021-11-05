@@ -21,14 +21,14 @@
       <div class="col-sm">
         {% if jadwal %}
         {% for x in jadwal %}
-        <a href="#" onclick="myFunction()">
+        <a href="/jadwal/{{ x.id }}" onclick="myFunction()" id="myid">
           <div class="card">
             <div class="card-body">
               <p class="card-list-title">
-              <p class="font-weight-bold">{{x.title}} | Kelas {{x.kelas}}</p>
+              <p class="font-weight-bold" id="judul"><span>{{x.title}}</span> | Kelas <span>{{x.kelas}}</span></p>
               </p>
               <p>
-              <p>{{x.day}}, {{x.start}} - {{x.end}}</p>
+              <p>{{x.day}}, {{x.start|date:'H:i'}} - {{x.end|date:'H:i'}}</p>
               <a href="{{x.link}}" class="stretched-link">Link</a>
               <p>{{x.desc}}</p>
               </p>
@@ -42,21 +42,24 @@
       </div>
       <div class="col-sm">
         <h3>
+          {% if edit %}
+          Update Jadwal<br>
+          {% else %}
           Tambah Jadwal<br>
+          {% endif %}
           <small class="text-muted">Login required</small>
         </h3>
-
         <form action="" method="POST">
           {% csrf_token %}
 
           <div class="form-row">
             <div class="form-group col-md-8">
               <label for="title">Nama Jadwal</label>
-              <input id="nama" type="text" class="form-control" name="title" required>
+              <input id="nama" type="text" class="form-control" name="title" required value="{{obj.title}}">
             </div>
             <div class="form-group col-md-4">
               <label for="kelas">Kelas</label>
-              <select id="inputState" class="form-control" name="kelas">
+              <select id="inputState" class="form-control" name="kelas" required>
                 {% for kelas in form.kelas%}
                 {{kelas.tag}}
                 <label for="{{kelas.id_for_label}}">
@@ -69,7 +72,7 @@
           <div class="form-row">
             <div class="form-group col-md-4">
               <label for="day">Hari</label>
-              <select id="inputState" class="form-control" name="day">
+              <select id="inputState" class="form-control" name="day" required>
                 {% for day in form.day%}
                 {{day.tag}}
                 <label for="{{day.id_for_label}}">
@@ -80,39 +83,49 @@
             </div>
             <div class="form-group col-md-4">
               <label for="start">Jam Mulai</label>
-              <input type="time" id="inputMDEx1" class="form-control" name="start">
+              <input type="time" id="inputMDEx1" class="form-control" name="start" value="{{obj.start|date:'H:i'}}" required>
             </div>
             <div class="form-group col-md-4">
               <label for="start">Jam Selesai</label>
-              <input type="time" id="inputMDEx1" class="form-control" name="end">
+              <input type="time" id="inputMDEx1" class="form-control" name="end" value="{{obj.end|date:'H:i'}}" required>
             </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-12">
               <label for="link">Link</label>
-              <input type="url" class="form-control" id="link" name="link">
+              <input type="url" class="form-control" id="link" name="link" value="{{obj.link}}" required>
             </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-12">
               <label for="desc">Deskripsi</label>
-              <textarea class="form-control" id="desc" rows="3" name="desc"></textarea>
+              <textarea class="form-control" id="desc" rows="3" name="desc">{{obj.desc}}</textarea>
             </div>
           </div>
+          {% if edit %}
+          <button type="submit" class="btn btn-info" value="submit">Save</button>
+          <a href="/jadwal">
+            <button type="button" class="btn btn-danger">Cancel</button>
+          </a>
+          {% else %}
           <button type="submit" class="btn btn-primary" value="submit">Submit</button>
-
+          {% endif %}
         </form>
 
       </div>
     </div>
   </div>
 </body>
-<script>
+<!-- <script>
 function myFunction() {
   console.log(document.getElementById('nama').value);
   document.getElementById("nama").value = "halo world";
-  console.log(document.getElementById('nama').value);
+  let a = '{{jadwal|safe}}';
+  console.log(a[0]);
 }
-</script>
+</script> -->
+<!-- <script type="text/javascript">
+  var received_data  = "{{ data|safe }}";
+</script> -->
 
 </html>
