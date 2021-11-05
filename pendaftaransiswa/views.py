@@ -7,7 +7,8 @@ import json
 from django.http import JsonResponse
 from django.views import View
 from userauth.models import CustomUser
-from django.core.validators import validate_email
+from validate_email import validate_email
+
 
 class EmailValidationView(View):
 	def post(self, request):

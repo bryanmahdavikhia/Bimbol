@@ -50,7 +50,6 @@ class RegisterFormSiswa(UserCreationForm):
 			attrs={'class':'form-control'}),
 			required=False)
 
-	# validasi_guru = forms.FileField(label='Validasi Pengajar', required=False)
 
 
 	class Meta:
@@ -80,6 +79,3 @@ class RegisterFormSiswa(UserCreationForm):
 		except Exception as e:
 			return username
 		raise forms.ValidationError("Username {username} is already in use.")
-
-	
-
