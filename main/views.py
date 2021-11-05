@@ -1,11 +1,16 @@
 # Import supporting
 from django.shortcuts import render
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect, render
 from django.http.response import HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib import messages
 from userauth.models import CustomUser
+from django.contrib.auth.decorators import login_required
+
+from .models import Saran
+from django.http.response import HttpResponseRedirect
+from .forms import SaranForm
 
 
 def home(request):
@@ -31,7 +36,18 @@ def login_request(request):
                     template_name = "main/login.html",
                     context={"form":form})
 
+@login_required(login_url='/login')
 def logout_request(request):
     logout(request)
     messages.info(request, "Logged out successfully!")
     return redirect("/")
+
+@login_required(login_url='/login')
+def add_saran(request):
+    context = {}
+    form = SaranForm(request.POST or None)
+    if (request.method == 'POST' and form.is_valid()):
+        form.save() 
+        return HttpResponseRedirect('/')
+    context['form'] = form
+    return render(request, 'main/home.html', context)
