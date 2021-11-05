@@ -7,8 +7,7 @@ import json
 from django.http import JsonResponse
 from django.views import View
 from userauth.models import CustomUser
-#from validate_email import validate_email
-
+from django.core.validators import validate_email
 
 class EmailValidationView(View):
 	def post(self, request):
@@ -53,10 +52,10 @@ def register_siswa(request):
 	else: #GET request
 		form = RegisterFormSiswa()
 		context['registerform'] = form
-	return render(request, 'register_siswa.html', context)
+	# return render(request, 'register_siswa.html', context)
 	# return render(request, 'index_siswa.html', context)
-	# return render(request, 'registration.html', context)
+	return render(request, 'registration.html', context)
 
 def home(request):
-	return render(request, 'home.html', {})
+	return render(request, 'home_siswa.html', {})
 
