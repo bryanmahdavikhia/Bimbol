@@ -3,7 +3,7 @@ from .models import Booking
 from django.contrib.auth.models import Group
 from userauth.models import CustomUser
 class BookForm(forms.ModelForm):
-    groupGuru = Group.objects.get(name='Guru')
+    # groupGuru = Group.objects.get(name='Guru')
     # gurunya = groupGuru.user_set.all()
     # guru = forms.ModelChoiceField(queryset=gurunya)
 

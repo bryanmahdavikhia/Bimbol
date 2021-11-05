@@ -3,12 +3,36 @@
 {% block content %}
 {% load static %} 
 <link rel="stylesheet" href="{% static 'style.css' %}">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="{% static 'assets/css/nucleo-icons.css' %}" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
+    <!-- BLK• CSS -->
+    <link href="{% static 'assets/css/blk-design-system.min.css' %}" rel="stylesheet">
+
+</head>
 <div class="container">
   <div class="shadow p-4 mb-5 bg-body rounded">
-  <h1>Daftar Guru</h1><br>
+  <h1 style= "color: #706C61;">Daftar Guru</h1>
   <form method="POST" action="" id="formbook"> {% csrf_token %}
-        {{ booking_guru.as_p }}
-
+        {% comment %} {{ booking_guru.as_p }} {% endcomment %}
+        {{booking_guru.guru.label_tag}}
+        <select name="guru">
+        <option value="nama">{{guru.nama_lengkap}}</option>
+        </select>
+        <div class="form-group">
+            {{booking_guru.selesai.label_tag}}
+            <div class="form-row">
+            {{booking_guru.selesai}}
+            </div>
+        </div>
         <input type ="submit" value="Submit">
  </form>
 <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
