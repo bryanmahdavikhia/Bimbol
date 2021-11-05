@@ -11,7 +11,7 @@ def testimoni(request):
     response = {'testimonial': testimonial}
     return render(request, 'testimoni_display.html', response)
 
-@login_required(login_url='/main/login/')
+@login_required(login_url='/login')
 def testimoni_update(request, pk):
 	context ={}
 	obj = get_object_or_404(Testimoni, pk = pk)
@@ -25,7 +25,7 @@ def testimoni_update(request, pk):
 
 	return render(request, "testimoni_form.html", context)
 
-@login_required(login_url='/main/login/')
+@login_required(login_url='/login')
 def testimoni_delete(request, pk):
     
     if request.is_ajax():
@@ -34,7 +34,7 @@ def testimoni_delete(request, pk):
             return JsonResponse({"message":"success"})
     return JsonResponse({"message": "Maaf, penghapusan tidak berhasil"})
 
-@login_required(login_url='/main/login/')
+@login_required(login_url='/login')
 def testimoni_create(request):
     if request.method == "POST":
         form = TestimoniForm(request.POST)
