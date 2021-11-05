@@ -1,61 +1,253 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base-forum.html' %}
+{% load static %}
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="./assets/img/favicon.png">
-  <title>
-    Blk• Design System by Creative Tim
-  </title>
-  <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
-  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-  <!-- Nucleo Icons -->
-  <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
-  <!-- CSS Files -->
-  <link href="./assets/css/blk-design-system.css?v=1.0.0" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="./assets/demo/demo.css" rel="stylesheet" />
-</head>
+{% block content %}
+<link href="{% static 'css/style-forum.css' %}" rel="stylesheet">
+<link rel="icon" type="image/png" href=" {% static 'pendaftaransiswa/img/favicon.png' %}">
 
-<body class="index-page">
+<title>Registration Student</title>
+ 
+<div class="container">
+    <h1 class="title"> Registration Student </h1>
+
+    <div class="card-body">
+      <form class="form" method="POST">
+        {% csrf_token %} 
+        {{registerform.username.label_tag}}
+        <div class="input-group"  id="usernameField">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <i class="tim-icons icon-single-02"></i>
+            </div>
+          </div>
+          {{registerform.username}}
+        </div>
+        <div class="invalid_feedback invalid-feedback" style="display:none"></div>
+
+        <br>
+
+        {{ registerform.nama_lengkap.label_tag }}
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <i class="tim-icons icon-single-02"></i>
+            </div>
+          </div>
+          {{ registerform.nama_lengkap }}
+        </div>
+
+        <br>
+
+        {{registerform.email.label_tag}}
+        <div class="input-group" id="emailField">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <i class="tim-icons icon-email-85"></i>
+            </div>
+          </div  placeholder="Email" class="form-control">
+          {{registerform.email}}
+        </div>
+        <div class="emailFeedBackArea invalid-feedback" style="display:none"></div>
+
+        <br>
+
+        {{ registerform.password1.label_tag}}
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <i class="tim-icons icon-lock-circle"></i>
+            </div>
+          </div>
+          {{ registerform.password1 }}
+        </div>
+
+        <br>
+
+        {{ registerform.password2.label_tag}}
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <i class="tim-icons icon-lock-circle"></i>
+            </div>
+          </div>
+          {{ registerform.password2}}
+        </div>
+
+        <br>
+
+        <!-- {{ registerform.nomor_telefon.label_tag}} -->
+        <label for="nomor_telefon">Telephone Number:</label> 
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <i class="tim-icons icon-lock-circle"></i>
+            </div>
+          </div>
+          {{ registerform.nomor_telefon}}
+        </div>
+
+        <br>
+
+        <div class="form-group">
+          <!-- {{registerform.tanggal_lahir.label_tag}} -->
+          <label for="tanggal_lahir">Birthdate:</label> 
+          <div class="form-row">
+            {{registerform.tanggal_lahir}}
+          </div>
+        </div>
+      
+        <br>
+      
+        <div class="form-group">
+          <!-- {{registerform.kelas.label_tag}} -->
+          <label for="kelas">Grade:</label> 
+          {% for kelas in registerform.kelas %}
+            <div class="form-group">
+              {{kelas.tag}}
+              <label for="{{kelas.id_for_label}}">
+                {{kelas.choice_label}}
+              </label>
+            </div>
+          {% endfor %}
+          </div>
+
+          <br>
+
+          <div class="form-group">
+            {{registerform.mata_pelajaran.label_tag}}
+            {% for mata_pelajaran in registerform.mata_pelajaran %}
+              <div class="form-group">
+                {{mata_pelajaran.tag}}
+                <label for="{{mata_pelajaran.id_for_label}}">
+                  {{mata_pelajaran.choice_label}}
+                </label>
+              </div>
+            {% endfor %}
+          </div>
+
+          <br>
+
+        <!-- {{ registerform.alamat.label_tag}} -->
+        <label for="alamat">Address:</label> 
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <i class="tim-icons icon-lock-circle"></i>
+            </div>
+          </div>
+          {{ registerform.alamat}}
+        </div>
+
+        <br>
+        
+        <div class="form-group">
+          <!-- {{registerform.jenis_kelamin.label_tag}} -->
+          <label for="jenis_kelamin">Gender:</label> 
+          {% for jenis_kelamin in registerform.jenis_kelamin %}
+            <div class="form-group">
+              {{jenis_kelamin.tag}}
+              <label for="{{jenis_kelamin.id_for_label}}">
+                {{jenis_kelamin.choice_label}}
+              </label>
+            </div>
+          {% endfor %}
+        </div>
+      
+        <br>
+      
+        <div class="form-group">
+          <!-- {{registerform.payment.label_tag}} -->
+          <label for="payment">Payment Details:</label>
+          {% for payment in registerform.payment %}
+            <div class="form-group">
+              {{payment.tag}}
+              <label for="{{payment.id_for_label}}">
+                {{payment.choice_label}}
+              </label>
+            </div>
+          {% endfor %}
+        </div>
+
+        <br>
+
+        <div class="form-group">
+          <label for="agree">I agree to the </label>
+          <a href="javascript:void(0)">terms and conditions</a>.
+          {{registerform.agree}}
+        </div>
+
+        <br> 
+
+        <!-- <button id="submit" type="submit" class="btn btn-primary" value="Submit" form="registerform">Get Started</button> -->
+        <button class="btn-primary" type="submit">Submit</button>
+
+        {% for field in registerform %}
+		<p>
+			<!-- {{field.label_tag}}
+			{{field}} 
+
+			 {% if field.help_text %}
+				<small style="color: grey;">{{field.help_text}}</small>
+			{% endif %} -->
+
+			{% for error in field.errors %}
+				<p style="color: red;">{{error}}</p>
+			{% endfor %}
+		</p>
+	{% endfor %}
+
+      </form>
+    </div>
+
     
+</div>
 
-<!--   Core JS Files   -->
-<script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
-<script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
-<script src="./assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-<script src="./assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-<script src="./assets/js/plugins/bootstrap-switch.js"></script>
-<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-<script src="./assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
-<!-- Chart JS -->
-<script src="./assets/js/plugins/chartjs.min.js"></script>
-<!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
-<script src="./assets/js/plugins/moment.min.js"></script>
-<script src="./assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
-<!-- Black Dashboard DEMO methods, don't include it in your project! -->
-<script src="./assets/demo/demo.js"></script>
-<!-- Control Center for Black UI Kit: parallax effects, scripts for the example pages etc -->
-<script src="./assets/js/blk-design-system.min.js?v=1.0.0" type="text/javascript"></script>
-<script>
-  $(document).ready(function() {
-    blackKit.initDatePicker();
-    blackKit.initSliders();
-  });
 
-  function scrollToDownload() {
 
-    if ($('.section-download').length != 0) {
-      $("html, body").animate({
-        scrollTop: $('.section-download').offset().top
-      }, 1000);
-    }
-  }
-</script>
-</body>
+    <!-- <div class="row">
+        <div class="col-sm">
+            {% for post in forum %}
+            <a href="{% url 'post' post.id %}">
+            <div class="card" id="asd">
+                <div class="card-body">
+                    <p class="card-list-title">
+                        <p class="font-weight-bold">{{post.title}}</p>
+                    </p>
+                     <p class="card-list-desc">
+                        {{post.desc}}
+                    </p> 
+                    <p>
+                        <p class="text-muted">create by {{post.author.username}} {{ post.created|timesince }} ago</p>
+                    </p>
+                </div>
+            </div>    
+            </a>
+            {% endfor %}
+        </div>
+        <div class="col-sm">
+            <h3>
+                Add Forum<br>
+                <small class="text-muted">Login required</small>
+            </h3>
+            
+            <form action='' method="post" autocomplete="off">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    {{ form.title }}
+                </div>
+                <div class="form-group">
+                    <label for="desc">Description</label>
+                    {{ form.desc }}
+                </div>
 
-</html>
+                <button id="submit" type="submit" class="btn btn-primary" value="Submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div> -->
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'register.js' %}"></script>
+{% endblock %}
