@@ -4,15 +4,11 @@ from django.shortcuts import get_object_or_404, render
 from .models import Jadwal, CustomUser
 from .forms import JadwalForm
 from django.http import HttpResponseRedirect
-from django.http.response import HttpResponse
+from django.http.response import HttpResponse, JsonResponse
 from django.core import serializers
 from django.contrib.auth.decorators import login_required
+from django.template.loader import render_to_string
 
-
-# def index(request):
-#     jadwal = Jadwal.objects.all()  # TODO Implement this
-#     response = {'jadwal': jadwal}
-#     return render(request, 'jadwal.html', response)
 
 def jadwal_json(request):
     data = serializers.serialize('json', Jadwal.objects.all())
@@ -61,3 +57,12 @@ def jadwal(request, pk = None):
         obj = None
 
     return render(request, 'jadwal.html', {'form':form, 'failed':failed, 'jadwal': jadwal, 'obj':obj, 'edit':edit})
+
+def filter_jadwal(request):
+    kelas=request.GET.getlist('kelas[]')
+    jadwal=Jadwal.objects.all().filter(guru=request.user)
+    if len(kelas)>0:
+	    jadwal=jadwal.filter(kelas__in=kelas).distinct()
+
+    t=render_to_string('jadwal_card.html',{'jadwal':jadwal})
+    return JsonResponse({'data':t})

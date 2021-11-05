@@ -1,0 +1,20 @@
+{% if jadwal %}
+{% for x in jadwal %}
+<a href="/jadwal/{{ x.id }}" onclick="myFunction()" id="myid">
+    <div class="card">
+        <div class="card-body">
+            <p class="card-list-title">
+            <p class="font-weight-bold" id="judul"><span>{{x.title}}</span> | Kelas <span>{{x.kelas}}</span></p>
+            </p>
+            <p>
+            <p>{{x.day}}, {{x.start|date:'H:i'}} - {{x.end|date:'H:i'}}</p>
+            <a href="{{x.link}}" class="stretched-link">Link</a>
+            <p>{{x.desc}}</p>
+            </p>
+        </div>
+    </div>
+</a>
+{% endfor %}
+{% else %}
+<h3>Tidak ada jadwal</h3>
+{% endif %}

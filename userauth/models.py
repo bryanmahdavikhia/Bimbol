@@ -16,7 +16,7 @@ class CustomUser(AbstractUser):
 
     JENIS_KELAMIN_CHOICES = [('pria', 'pria'), ('wanita', 'wanita')]
     jenis_kelamin = models.CharField(max_length=30, choices=JENIS_KELAMIN_CHOICES, blank=True, null=True)
-    alamat = models.TextField(blank=True, null=True)
+    alamat = models.TextField(max_length=100, blank=True, null=True)
     agree = models.BooleanField(default=False)
 
     KELAS_CHOICES = [('10', '10'), ('11', '11'), ('12', '12')]
@@ -38,7 +38,7 @@ class CustomUser(AbstractUser):
     # , choices=MATA_PELAJARAN_CHOICES, blank=True, null=True)
 
     PAYMENT_CHOICES=[('CASH','Cash'), ('CHECK','Check'), ('CARD','Card')]
-    payment = models.CharField(max_length=225, choices=PAYMENT_CHOICES, default='Card')
+    payment = models.CharField(max_length=100, choices=PAYMENT_CHOICES, default='Card')
 
     validasi_guru = models.FileField()
     nomor_telefon = models.CharField(max_length=100, default='')
