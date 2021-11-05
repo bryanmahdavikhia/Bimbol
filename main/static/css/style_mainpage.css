@@ -20793,8 +20793,15 @@ input.datetimepicker[data-color="yellow"]+.bootstrap-datetimepicker-widget.dropd
 .card-chart .dropdown .btn {
   margin: 0;
 }
+.containerForm {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
 
-.inputSaran {
+.input {
   color:white;
   font-family: "Dekko";
   font-weight:500;
@@ -20813,21 +20820,6 @@ input.datetimepicker[data-color="yellow"]+.bootstrap-datetimepicker-widget.dropd
 
 ::placeholder {color:white}
 
-[type="submit"] {
-  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-  width: 100%;
-  background:#59C3C3;
-  border-radius:5px;
-  border:0;
-  cursor:pointer;
-  color:white;
-  font-size:24px;
-  padding-top:10px;
-  padding-bottom:10px;
-  transition: all 0.3s;
-  margin-top:-4px;
-  font-weight:700;
-}
 [type="submit"]:hover { color:#59C3C3; background:white; }
 
 /*# sourceMappingURL=kit-free.css.map */
