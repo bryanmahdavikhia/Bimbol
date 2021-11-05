@@ -8,14 +8,14 @@ from django.contrib.auth.decorators import login_required
 from .models import Booking
 # Create your views here.
 
-# @login_required(login_url='/pendaftaransiswa/')
+@login_required(login_url='/pendaftaransiswa/')
 def daftar_guru(request):
     group = Group.objects.get(name='Guru')
     guru = group.user_set.all()
     response = {'guru': guru}
     return render(request, 'daftar_guru.html', response)
 
-# @login_required(login_url='/pendaftaransiswa/')
+@login_required(login_url='/pendaftaransiswa/')
 def booking_guru(request):
     group = Group.objects.get(name='Guru')
     guru = group.user_set.all()
