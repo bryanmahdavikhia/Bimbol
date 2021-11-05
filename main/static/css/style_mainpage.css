@@ -17521,7 +17521,6 @@ hr.line-deafult {
 .section-signup .square-1 {
   height: 300px;
   width: 300px;
-  background-image: url("../../static/image/square1.png");
   top: 80px;
   left: 100px;
   opacity: 0.3;
@@ -17531,7 +17530,6 @@ hr.line-deafult {
 .section-signup .square-2 {
   height: 200px;
   width: 200px;
-  background: url("../../static/image/square3.png");
   background-size: cover;
   bottom: 40px;
   left: 600px;
@@ -17542,7 +17540,6 @@ hr.line-deafult {
 .section-signup .square-3 {
   height: 100px;
   width: 100px;
-  background: url("../../static/image/square2.png");
   background-size: cover;
   top: 300px;
   left: 700px;
@@ -17552,7 +17549,6 @@ hr.line-deafult {
 .section-signup .square-4 {
   height: 250px;
   width: 250px;
-  background: url("../../static/image/square3.png");
   background-size: cover;
   top: 0px;
   right: 100px;
