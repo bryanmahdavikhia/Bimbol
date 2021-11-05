@@ -5,7 +5,7 @@
 <div class="container">
   <div class="shadow p-4 mb-5 bg-body rounded"> 
   <h1>Pendaftaran Guru</h1>
-<form method="POST" > 
+<form method="POST" id = "registrationform"> 
   {% csrf_token %}
   <div class="form-group">
     {{registerform.username.label_tag}}
@@ -128,14 +128,34 @@
   </div>
 
   <br>
-  <button class="btn-primary" type="submit">Submit</button>
+  <button class="btn btn-primary" type="submit" >Submit</button>
 </form>
+<script
+        src="https://code.jquery.com/jquery-3.5.0.min.js"
+        integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+        crossorigin="anonymous"></script>
+
+<script>
+  const form = document.getElementById('registrationform');
+  form.addEventListener("submit", submitHandler);
+
+  function submitHandler(e){
+    e.preventDefault();
+    $.ajax({
+      type: 'POST',
+      url: "",
+      data: $("#registrationform").serialize(),
+      dataType: 'json',
+      success: function(msg){
+        if (msg.msg === 'success'){
+          alert('Form is submitted');
+          window.location = '{%url "homeguru"%}';
+        }
+      }
+    })
+  }
+</script>
 </div>
 </div>
-
-
-
-
-
 
 {% endblock content %}
