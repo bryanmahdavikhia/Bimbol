@@ -50,7 +50,6 @@ class RegisterFormSiswa(UserCreationForm):
 			attrs={'class':'form-control'}),
 			required=False)
 
-	# validasi_guru = forms.FileField(label='Validasi Pengajar', required=False)
 
 
 	class Meta:

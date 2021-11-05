@@ -8,7 +8,10 @@ from django.http import JsonResponse
 from django.views import View
 from userauth.models import CustomUser
 from validate_email import validate_email
+<<<<<<< HEAD
 from django.contrib.auth.decorators import login_required
+=======
+>>>>>>> 17ed6aebf6caa6fb8355739b5ca8d6565a7bca8f
 
 
 class EmailValidationView(View):

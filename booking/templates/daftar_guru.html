@@ -3,27 +3,119 @@
 {% block content %}
 {% load static %} 
 <link rel="stylesheet" href="{% static 'style.css' %}">
-{% comment %} <div class="container">
-  <div class="shadow p-4 mb-5 bg-body rounded">
-<h1>Daftar Guru</h1><br>
-<div class="card-columns">
-        {% for i in guru %}   
-        <div class="card">
-          <h4 class="card-header" style="background-color: #E5DCC3; color: #393E46;" >{{ i.nama_lengkap }}</h4>
-          <div class="card-body">
-            <h6 class="card-title"></h6>
-            <h6 class="card-title">{{ i.mata_pelajaran }}</h6>
-            <p class="card-text">{{ i.kelas}} </p>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="{% static 'assets/css/nucleo-icons.css' %}" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
+    <!-- BLK• CSS -->
+    <link href="{% static 'assets/css/blk-design-system.min.css' %}" rel="stylesheet">
+
+</head>
+<nav class="navbar navbar-expand-lg fixed-top" style="background:#e14eca;">
+      <div class="container">
+
+          <div class="navbar-translate">
+
+              <a class="navbar-brand" href="https://cs.ui.ac.id/" rel="tooltip" title="Solusi Bimbel yang Aman dan Mudah di Masa Pandemi" data-placement="bottom" target="_blank" style="background:#e14eca;">
+                  <span>BIMBOL • Bimbel Online di Masa Pandemi</span>
+              </a>
+
+              <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation" >
+                  <span class="navbar-toggler-bar bar1"></span>
+                  <span class="navbar-toggler-bar bar2"></span>
+                  <span class="navbar-toggler-bar bar3"></span>
+              </button>
+
           </div>
-        </div>
-        <br>
-        {% endfor %}  
-    </div>
-</div>
-</div> {% endcomment %}
+
+          <div class="collapse navbar-collapse justify-content-end" id="navigation">
+              
+              <div class="navbar-collapse-header">
+                  <div class="row">
+                      
+                      <div class="col-6 collapse-brand">
+                          <a>
+                              BIMBOL • 
+                          </a>
+                      </div>
+                      
+                      <div class="col-6 collapse-close text-right">
+                          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                              <i class="tim-icons icon-simple-remove"></i>
+                          </button>
+                      </div>
+                  
+                  </div>
+              </div>
+
+              <ul class="navbar-nav">
+                  
+                  <li class="nav-item p-0">
+                      <a class="nav-link" rel="tooltip" title="Follow Twitter Fasilkom UI" data-placement="bottom" href="https://twitter.com/FASILKOM_UI" target="_blank">
+                          <i class="fab fa-twitter"></i>
+                          <p class="d-lg-none d-xl-none">Twitter</p>
+                      </a>
+                  </li>
+                  
+                  <li class="nav-item p-0">
+                      <a class="nav-link" rel="tooltip" title="Like Facebook Fasilkom UI" data-placement="bottom" href="https://www.facebook.com/FasilkomUniversitasIndonesia" target="_blank">
+                          <i class="fab fa-facebook-square"></i>
+                          <p class="d-lg-none d-xl-none">Facebook</p>
+                      </a>
+                  </li>
+                  
+                  <li class="nav-item p-0">
+                      <a class="nav-link" rel="tooltip" title="Follow Instagram Fasilkom UI" data-placement="bottom" href="https://www.instagram.com/fasilkomuiofficial" target="_blank">
+                          <i class="fab fa-instagram"></i>
+                          <p class="d-lg-none d-xl-none">Instagram</p>
+                      </a>
+                  </li>
+                  
+                  <li class="dropdown nav-item">
+                      <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                          <i class="fa fa-cogs d-lg-none d-xl-none"></i> Fitur BIMBOL
+                      </a>
+                      <div class="dropdown-menu dropdown-with-icons">
+                          <a href="/booking" class="dropdown-item">
+                              Booking
+                          </a>
+                          <a href="/jadwal" class="dropdown-item">
+                              Jadwal
+                          </a>
+                          <a href="/forum" class="dropdown-item">
+                            Forum
+                        </a>
+                        <a href="/testimoni" class="dropdown-item">
+                            Testimoni
+                        </a>
+                      </div>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link btn btn-default d-none d-lg-block" href="/logout">
+                          Keluar
+                      </a>
+                  </li>
+
+              </ul>
+
+          </div>
+      </div>
+  </nav>
+  <br>
+  <br>
+  <br>
+  <br>
 <div class="container">
   <div class="shadow p-4 mb-5 bg-body rounded">
-  <h1>Daftar Guru</h1><br>
+  <h1 style= "color: #706C61;">Daftar Guru</h1>
   
   <div class="row">
   {%for i in guru%}
@@ -41,7 +133,8 @@
 {% endfor %}
 <br>
 <br>
-<a href="/booking/pesan/" class="btn btn-primary">Book</a>
+<a href="/booking/pesan/" class="btn btn-primary" >Book</a>
+<a href="/jadwal/" class="btn btn-primary" >Jadwal</a>
 </div>
 </div>
 </div>

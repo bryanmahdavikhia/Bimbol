@@ -52,6 +52,7 @@ class CustomUser(AbstractUser):
 
 
 
+<<<<<<< HEAD
 # # from typing_extensions import Required
 # from django.db import models
 # from django.contrib.auth.models import AbstractUser
@@ -97,3 +98,5 @@ class CustomUser(AbstractUser):
 #     def __str__(self):
 #         return self.username
 
+=======
+>>>>>>> 17ed6aebf6caa6fb8355739b5ca8d6565a7bca8f
