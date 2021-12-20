@@ -5,14 +5,19 @@ from datetime import datetime
 from django.http.response import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.core import serializers
 from django.contrib.auth.decorators import login_required
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
 # Create your views here.
-@login_required(login_url='/admin/login/')
+# @login_required(login_url='/admin/login/')
+@api_view(['GET', 'POST'])
 def json(request):
     data_forum = serializers.serialize('json', Forum.objects.all())
-    data_reply = serializers.serialize('json', Reply.objects.all())
-    data = data_forum + '\n' + data_reply
-    return HttpResponse(data, content_type="application/json")
+    data_reply = serializers.serialize('json', Reply.objects.all()).replace('null', 'None')
+    print(data_forum)
+    data = {'data_forum' : eval(data_forum), 'data_reply' : eval(data_reply)}
+    print(data)
+    return Response(data)
 
 @login_required(login_url='/admin/login/')
 def postPageJson(request, id):
