@@ -1,21 +1,82 @@
 from django.shortcuts import render
+
+from forum.serializers import ForumSerializer, ReplySerializer
+from userauth.models import CustomUser
 from .forms import ForumForm, ReplyForm, ReplyofReplyForm
 from .models import Forum, Reply
 from datetime import datetime
 from django.http.response import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.core import serializers
 from django.contrib.auth.decorators import login_required
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
 # Create your views here.
-@login_required(login_url='/admin/login/')
+# @login_required(login_url='/admin/login/')
+@api_view(['GET'])
 def json(request):
     data_forum = serializers.serialize('json', Forum.objects.all())
-    data_reply = serializers.serialize('json', Reply.objects.all())
-    data = data_forum + '\n' + data_reply
-    return HttpResponse(data, content_type="application/json")
+    data_reply = serializers.serialize('json', Reply.objects.all()).replace('null', 'None')
+    data_forum = eval(data_forum)
+    for forum in data_forum:
+        forum['fields']['author'] = CustomUser.objects.filter(pk=forum['fields']['author'])[0].username
+        print(forum)
 
+    data_reply = eval(data_reply)
+    for reply in data_reply:
+        reply['fields']['user'] = CustomUser.objects.filter(pk=reply['fields']['user'])[0].username
+        
+    data = {'data_forum' : data_forum, 'data_reply' : data_reply}
+    return Response(data)
+
+@api_view(['GET'])
+def forumJson(request, id):
+    data_reply = serializers.serialize('json', Reply.objects.filter(forum=id)).replace('null', 'None')
+    data_reply = eval(data_reply)
+    for reply in data_reply:
+        reply['fields']['user'] = CustomUser.objects.filter(pk=reply['fields']['user'])[0].username
+     
+    return Response(data_reply)
+
+@api_view(['GET'])
+def replyJson(request, id):
+    data_reply = serializers.serialize('json', Reply.objects.filter(parent=id)).replace('null', 'None')
+    data_reply = eval(data_reply)
+    for reply in data_reply:
+        reply['fields']['user'] = CustomUser.objects.filter(pk=reply['fields']['user'])[0].username
+
+    return Response(data_reply)
+
+@api_view(['POST'])
+def createForum(request):
+    data = request.data
+    print(request.user)
+    forum = Forum.objects.create(
+        title = data['title'],
+        desc = data['desc'],
+        author = request.user
+    )
+    serializer = ForumSerializer(forum, many=False)
+    return Response(serializer.data)
+
+@api_view(['POST'])
+def createReply(request, id):
+    par = Reply.objects.get(id=id)
+    print("="*30)
+    post = Forum.objects.get(id=par.forum.id)
+    data = request.data
+    reply = Reply.objects.create(
+        desc = data['desc'],
+        user = request.user,
+        forum = post,
+        parent = par
+    )
+    serializer = ReplySerializer(reply, many=False)
+    return Response(serializer.data)
+
+# nggak pake
 @login_required(login_url='/admin/login/')
-def postPageJson(request, id):
+def ForumJson(request, id):
     temp =  Forum.objects.filter(pk=id)
     print(temp)
     # temp[0]['fields']['username'] = temp[0].author.username
@@ -39,7 +100,6 @@ def postPage(request, id):
         obj.user = request.user
         obj.forum = post
         obj.parent = None
-        obj.created = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
         reply.save()
         # form = ForumForm()
         return HttpResponseRedirect('/forum/post/' + str(id) + '#' + str(obj.id))
@@ -73,7 +133,6 @@ def index(request):
     if form.is_valid() and request.user.is_authenticated:
         obj = form.save(commit=False)
         obj.author = request.user
-        obj.created = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
         form.save()
         # form = ForumForm()
         return HttpResponseRedirect('/forum')
