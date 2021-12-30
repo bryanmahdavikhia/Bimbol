@@ -26,5 +26,5 @@ urlpatterns = [
     # path('testimoni/', include('testimoni.urls')),
     path('pendaftaransiswa/', include('pendaftaransiswa.urls')),
     path('jadwal/', include('jadwal.urls')),
-    # path('booking/', include('booking.urls')),
+    path('booking/', include('booking.urls')),
 ]
