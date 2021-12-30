@@ -8,7 +8,6 @@ from django.http.response import HttpResponse, JsonResponse
 from django.core import serializers
 from django.contrib.auth.decorators import login_required
 from django.template.loader import render_to_string
-import json
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import JadwalSerializer
