@@ -1,8 +1,11 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Testimoni
 from .forms import TestimoniForm
-from django.http import HttpResponseRedirect, JsonResponse
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
+from django.core import serializers
+import json
 
 # Create your views here.
 
@@ -34,7 +37,7 @@ def testimoni_delete(request, pk):
             return JsonResponse({"message":"success"})
     return JsonResponse({"message": "Maaf, penghapusan tidak berhasil"})
 
-@login_required(login_url='/login')
+# @login_required(login_url='/login')
 def testimoni_create(request):
     if request.method == "POST":
         form = TestimoniForm(request.POST)
@@ -44,6 +47,28 @@ def testimoni_create(request):
     
     form = TestimoniForm
     return render(request, 'testimoni_form.html', {'form':form})
+
+# @login_required(login_url='/login')
+def testimoni_json(request):
+    data = serializers.serialize('json', Testimoni.objects.all())
+    return HttpResponse(data, content_type="application/json")
+
+@csrf_exempt
+def add_testi_flutter(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        
+        nama = data["nama"]
+
+        kelas = data["kelas"]
+
+        testimoni = data["testimoni"]
+
+        testi_form = Testimoni(nama=nama, kelas=kelas, testimoni=testimoni)
+        testi_form.save()
+        return JsonResponse({"status": "success"}, status = 200)
+    else:
+        return JsonResponse({"status": "error"}, status = 401)
 
 
 
