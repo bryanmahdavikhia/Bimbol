@@ -1,8 +1,8 @@
 # TK PBP A01
 
-[![Test and Deploy][actions-badge]][commits-gh]
-[![pipeline status][pipeline-badge]][commits-gl]
-[![coverage report][coverage-badge]][commits-gl]
+[![Pipeline](https://gitlab.com/Ardanisa/tk-pbp-a01/badges/master/pipeline.svg)](https://gitlab.com/Ardanisa/tk-pbp-a01/pipelines)
+[![Coverage](https://gitlab.com/Ardanisa/tk-pbp-a01/badges/master/coverage.svg)](https://gitlab.com/Ardanisa/tk-pbp-a01/pipelines)
+
 
 Anggota Kelompok
 
@@ -23,7 +23,7 @@ Pada platform ini, nantinya pengguna akan diminta untuk mendaftar sebagai siswa 
 
 **Modul-modul di aplikasi**
 - Dashboard dan login : Halaman awal yang menampilkan informasi umum aplikasi, menampilkan navigasi dengan link pada halaman lainnya, serta akses untuk login ke dalam website.
-- Pendaftaran siswa : Halaman yang berisi form untuk registrasi untuk mendaftar sebagai siswa bimbingan belajar. Setelah registrasi berhasil, maka akan ditampilkan halaman yang berisi profil siswa serta nantinya bisa dilakukan edit pada profil.
+- Pendaftaran siswa : Halaman yang berisi form untuk registrasi untuk mendaftar sebagai siswa bimbingan belajar. Setelah registrasi berhasil, maka akan otomatis login dan ditampilkan welcome page yang hanya dapat diakses apabila telah login
 - Pendaftaran Pengajar : Halaman yang berisi form untuk registrasi untuk mendaftar sebagai pengajar bimbingan belajar. Setelah registrasi berhasil, maka akan ditampilkan halaman yang berisi profil pengajar serta nantinya bisa dilakukan edit pada profil.
 - Murid Mem-booking pengajar : Halaman akan menampilkan daftar profil pengajar, lalu siswa dapat memilih pengajar yang diinginkan. Setelahnya, akan ditampilkan informasi kontak pengajar untuk kelanjutan mekanisme  pembelajaran.
 - Jadwal : Siswa dapat memilih jadwal pembelajaran sesuai slot yang ada. Ketika sudah memilih, akan ditampilkan halaman jadwal yang telah dipilih oleh siswa dan nantinya dapat dilakukan edit apabila terdapat jadwal yang ingin diubah.
@@ -37,23 +37,3 @@ Pada platform ini, nantinya pengguna akan diminta untuk mendaftar sebagai siswa 
 Dengan dibuatnya aplikasi ini, kami berharap dapat membantu para siswa dalam menemukan tutor yang tepat untuk membantu dalam memahami materi pembelajaran pada masa pembelajaran jarak jauh (PJJ) dengan lebih baik. Selain itu, adanya pandemi saat ini juga membawa kesulitan pada para tutor/pengajar untuk menawarkan jasanya.  Oleh karena itu, kami berharap, aplikasi ini dapat membantu mempertemukan siswa dan tutor/pengajar yang tepat dalam kondisi pandemi ini secara online.
 
 
-[actions-badge]: https://github.com/laymonage/django-template-heroku/workflows/Test%20and%20Deploy/badge.svg
-[commits-gh]: https://github.com/laymonage/django-template-heroku/commits/master
-[pipeline-badge]: https://gitlab.com/laymonage/django-template-heroku/badges/master/pipeline.svg
-[coverage-badge]: https://gitlab.com/laymonage/django-template-heroku/badges/master/coverage.svg
-[commits-gl]: https://gitlab.com/laymonage/django-template-heroku/-/commits/master
-[readme-en]: README.en.md
-[heroku-dashboard]: https://dashboard.heroku.com
-[djecrety]: https://djecrety.ir
-[account-settings]: https://dashboard.heroku.com/account
-[chromedriver]: https://chromedriver.chromium.org/downloads
-[homebrew]: https://brew.sh
-[ticket-21227]: https://code.djangoproject.com/ticket/21227
-[bypass-cache]: https://en.wikipedia.org/wiki/Wikipedia:Bypass_your_cache
-[flake8]: https://pypi.org/project/flake8
-[pylint]: https://pypi.org/project/pylint
-[black]: https://pypi.org/project/black
-[isort]: https://pypi.org/project/isort
-[template]: https://docs.djangoproject.com/en/3.1/ref/django-admin/#cmdoption-startproject-template
-[repo-gh]: https://github.com/laymonage/django-template-heroku
-[repo-gl]: https://gitlab.com/laymonage/django-template-heroku

@@ -8,14 +8,116 @@ from django.http.response import HttpResponse, JsonResponse
 from django.core import serializers
 from django.contrib.auth.decorators import login_required
 from django.template.loader import render_to_string
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from .serializers import JadwalSerializer
 
-
-def jadwal_json(request):
-    data = serializers.serialize('json', Jadwal.objects.all())
-    return HttpResponse(data, content_type="application/json")
 
 def is_guru(user):
     return user.groups.filter(name='Guru').exists()
+
+@api_view(['GET'])
+def get_jadwals(request):
+    jadwals = Jadwal.objects.all()
+    serializer = JadwalSerializer(jadwals, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def get_jadwal(request, pk):
+    jadwal = Jadwal.objects.get(id=pk)
+    serializer = JadwalSerializer(jadwal, many=False)
+    return Response(serializer.data)
+
+@api_view(['POST'])
+def create_jadwal(request):
+    data = request.data
+    jadwal = Jadwal.objects.create(
+        title = data["title"],
+        kelas = data["kelas"],
+        day = data["day"],
+        start = data["start"],
+        end = data["end"],
+        link = data["link"],
+        desc = data["desc"],
+        guru = CustomUser.objects.get(id=data["guru"])
+    )
+    serializer = JadwalSerializer(jadwal, many=False)
+    return Response(serializer.data)
+
+@api_view(['PUT'])
+def update_jadwal(request, pk):
+    data = request.data
+    jadwal = Jadwal(
+        id = pk,
+        title = data["title"],
+        kelas = data["kelas"],
+        day = data["day"],
+        start = data["start"],
+        end = data["end"],
+        link = data["link"],
+        desc = data["desc"],
+        guru = CustomUser.objects.get(id=data["guru"])
+    )
+    jadwal.save()
+    serializer = JadwalSerializer(jadwal, many=False)
+    return Response(serializer.data)
+
+# def jadwal_json(request):
+#     obj = Jadwal.objects.all()
+#     data = serializers.serialize('json', list(obj), fields=('title','kelas', 'link', 'day'))
+#     return HttpResponse(data, content_type="application/json")
+    
+# def add_jadwal(request):
+#     if not is_guru(request.user):
+#         return JsonResponse({"status": "error"}, status=401)
+
+#     if request.method == 'POST':
+#         data = json.loads(request.body)
+#         form = JadwalForm()
+        
+#         form.day = data["day"]
+#         form.start = data["start"]
+#         form.end = data["end"]
+#         form.link = data["link"]
+#         form.kelas = data["kelas"]
+#         form.title = data["title"]
+#         form.desc = data["desc"]
+#         form.guru = request.user
+
+#         form.save()
+
+#         return JsonResponse({"status": "success"}, status=200)
+#     else:
+#         return JsonResponse({"status": "error"}, status=401)
+
+# def update_jadwal(request):
+#     if not is_guru(request.user):
+#         return JsonResponse({"status": "error"}, status=401)
+
+#     if request.method == 'POST':
+#         data = json.loads(request.body)
+#         jadwal = Jadwal.objects.all().filter(guru=request.user)
+#         obj = jadwal.filter(id=data['id']).first()
+
+#         if not obj:
+#             return JsonResponse({"status": "error"}, status=401)
+
+#         form = JadwalForm(instance=obj)
+        
+#         form.day = data["day"]
+#         form.start = data["start"]
+#         form.end = data["end"]
+#         form.link = data["link"]
+#         form.kelas = data["kelas"]
+#         form.title = data["title"]
+#         form.desc = data["desc"]
+#         form.guru = request.user
+
+#         form.save()
+
+#         return JsonResponse({"status": "success"}, status=200)
+#     else:
+#         return JsonResponse({"status": "error"}, status=401)
 
 @login_required(login_url='/pendaftaranguru/')
 def jadwal(request, pk = None):
@@ -63,7 +165,8 @@ def filter_jadwal(request):
     kelas=request.GET.getlist('kelas[]')
     jadwal=Jadwal.objects.all().filter(guru=request.user)
     if len(kelas)>0:
-	    jadwal=jadwal.filter(kelas__in=kelas).distinct()
-
+        jadwal=jadwal.filter(kelas__in=kelas).distinct()
+        
     t=render_to_string('jadwal_card.html',{'jadwal':jadwal})
     return JsonResponse({'data':t})
+

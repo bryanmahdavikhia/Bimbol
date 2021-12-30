@@ -13,7 +13,6 @@ class CustomUser(AbstractUser):
     nama_lengkap = models.CharField(max_length=100, blank=True, null=True)
     tanggal_lahir = models.DateField(blank=True, null=True)
     # phone_regex = RegexValidator(regex=r"^\+")
-
     JENIS_KELAMIN_CHOICES = [('p', 'pria'), ('w', 'wanita')]
     jenis_kelamin = models.CharField(max_length=30, choices=JENIS_KELAMIN_CHOICES, blank=True, null=True)
     alamat = models.TextField(max_length=100, blank=True, null=True)
@@ -51,4 +50,7 @@ class CustomUser(AbstractUser):
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> a9702c188d24663cd6d0586ab7df20ac04d1552a

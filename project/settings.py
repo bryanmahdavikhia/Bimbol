@@ -43,7 +43,7 @@ HEROKU_APP_NAME = os.getenv('HEROKU_APP_NAME', '')
 ALLOWED_HOSTS = [f'{HEROKU_APP_NAME}.herokuapp.com']
 
 if not PRODUCTION:
-    ALLOWED_HOSTS += ['.localhost', '127.0.0.1', '[::1]']
+    ALLOWED_HOSTS += ['.localhost', '127.0.0.1', '[::1]', '10.0.2.2']
 
 
 # Application definition
@@ -58,12 +58,17 @@ INSTALLED_APPS = [
     'main',
     'forum',
     'login_mainpage',
-    # 'testimoni',
+    'testimoni',
     'pendaftaranguru',
     'userauth',
     'pendaftaransiswa',
     'jadwal',
     'booking',
+<<<<<<< HEAD
+=======
+    'corsheaders',
+    'rest_framework',
+>>>>>>> a9702c188d24663cd6d0586ab7df20ac04d1552a
 ]
 
 MIDDLEWARE = [
@@ -75,6 +80,16 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+]
+
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_HEADERS = ["*"]
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_METHODS = [
+    'GET',
+    'POST',
 ]
 
 ROOT_URLCONF = 'project.urls'
