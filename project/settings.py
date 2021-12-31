@@ -83,7 +83,6 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_HEADERS = ["*"]
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_METHODS = [
@@ -95,18 +94,8 @@ ROOT_URLCONF = 'project.urls'
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-
-CORS_ALLOW_METHOD = [
-    'GET',
-    'POST',
-]
-
 CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_METHOD = [
-  'POST',
-  'GET',
-]
-ROOT_URLCONF = 'project.urls'
+
 
 
 TEMPLATES = [
