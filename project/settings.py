@@ -66,7 +66,6 @@ INSTALLED_APPS = [
     'jadwal',
     'booking',
     'authentication',
-    'corsheaders',
     'rest_framework',
 ]
 
