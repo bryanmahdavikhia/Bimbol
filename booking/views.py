@@ -58,6 +58,4 @@ def post_guru(request):
     post_guru = Booking.objects.create(guru=guruu, selesai=selesai)
     post_guru.save()
     
-    response = HttpResponse('success')
-    response.status_code = 200
-    return response
+    return JsonResponse({'msg':'Success'})
