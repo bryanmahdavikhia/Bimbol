@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     'pendaftaransiswa',
     'jadwal',
     'booking',
+    'authentication',
 
     'rest_framework',
 ]
