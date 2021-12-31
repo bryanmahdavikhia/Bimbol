@@ -4,6 +4,10 @@ from django.shortcuts import redirect, render
 from django.contrib import messages
 from . forms import RegisterFormGuru
 from django.contrib.auth.models import Group
+from django.views.decorators.csrf import csrf_exempt
+from .forms import RegisterFormGuru
+from django.contrib.auth.forms import UserCreationForm
+
 
 # Create your views here.
 def register_guru(request):
@@ -35,5 +39,38 @@ def register_guru(request):
 
 def home(request):
 	return render(request, 'home.html', {})
+
+@csrf_exempt
+def regFlutter(request):
+  data = json.loads(request.body)
+  dataUser={
+    'username':  data['username'],
+    'password1': data['password1'],
+    'password2': data['password2'],
+	'email' : data['email'],
+	'nama_lengkap': data['nama_lengkap'],
+	'tanggal_lahir': '01-01-2001',
+	'kelas' : '10',
+	'mata_pelajaran' : 'Matematika',
+	'alamat' : 'baung',
+	'jenis_kelamin' : 'wanita',
+	'agree' : True,
+	'nomor_telefon' : data['nomor_telefon']
+
+  }
+
+  form = RegisterFormGuru(dataUser or None)
+
+  if data['password1']==data['password2']:
+    user = form.save()
+
+    return JsonResponse({
+      'status': 'success'
+    })
+  else:
+    return JsonResponse({
+      'status': 'failed'
+    })
+
 
 

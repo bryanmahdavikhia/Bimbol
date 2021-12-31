@@ -44,7 +44,7 @@ class CustomUser(AbstractUser):
     nomor_telefon = models.CharField(max_length=100, default='')
 
     class Meta:
-        ordering = ['nama_lengkap', 'tanggal_lahir', 'jenis_kelamin', 'alamat', 'kelas', 'mata_pelajaran', 'payment', 'validasi_guru', 'nomor_telefon', 'agree']
+        ordering = ['nama_lengkap', 'tanggal_lahir', 'jenis_kelamin', 'alamat', 'kelas', 'mata_pelajaran', 'payment', 'nomor_telefon', 'agree']
 
     def __str__(self):
         return self.username

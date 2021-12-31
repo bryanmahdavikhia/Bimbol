@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'main',
     'forum',
     'login_mainpage',
@@ -75,9 +76,26 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+
+CORS_ALLOW_METHOD = [
+    'GET',
+    'POST',
+]
+
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_METHOD = [
+  'POST',
+  'GET',
+]
+ROOT_URLCONF = 'project.urls'
+
 
 TEMPLATES = [
     {
