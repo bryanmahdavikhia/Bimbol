@@ -6,11 +6,13 @@ class RegisterFormGuru(UserCreationForm):
 	nama_lengkap = forms.CharField(
 		max_length=100, 
 		widget=forms.TextInput(
-			attrs={'class':'form-control'}))
+			attrs={'class':'form-control'}),
+			required=False)
 
 	email = forms.EmailField(
 		widget=forms.EmailInput(
-			attrs={'class':'form-control'}))
+			attrs={'class':'form-control'}),
+			required=False)
 	
 	nomor_telefon = forms.CharField(
 		max_length=100, 
@@ -26,11 +28,12 @@ class RegisterFormGuru(UserCreationForm):
 	jenis_kelamin = forms.ChoiceField(
 		label='Jenis Kelamin', 
 		widget=forms.RadioSelect(), 
-		choices=[('p', 'pria'), ('w', 'wanita')])
+		choices=[('pria', 'pria'), ('wanita', 'wanita')])
 
 	alamat = forms.CharField(
 		widget=forms.Textarea(
-			attrs={'class':'form-control'}))
+			attrs={'class':'form-control'}),
+			required=False)
             
 	agree = forms.BooleanField(
 		label="Semua data yang saya masukan adalah benar")
