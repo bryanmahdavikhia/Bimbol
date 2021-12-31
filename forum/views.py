@@ -54,7 +54,7 @@ def createForum(request):
     forum = Forum.objects.create(
         title = data['title'],
         desc = data['desc'],
-        author = request.user
+        author = request.user if type(request.user) == CustomUser else CustomUser.objects.filter(username='anonymous')[0]
     )
     serializer = ForumSerializer(forum, many=False)
     return Response(serializer.data)
