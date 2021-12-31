@@ -52,7 +52,7 @@ def get_guru(request):
 def post_guru(request):
     data = json.loads(request.body)
     post_guru = BookForm()
-    guruu = data['guru']
+    guruu = CustomUser.objects.get(nama_lengkap = data['guru'])
     selesai = date(2023, 1, 6)
     
     post_guru = Booking.objects.create(guru=guruu, selesai=selesai)
