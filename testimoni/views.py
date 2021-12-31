@@ -66,7 +66,8 @@ def add_testi_flutter(request):
 # @login_required(login_url='/login')
 @api_view(['GET'])
 def testimoni_json(request):
-    data_testi = serializers.serialize('json', Testimoni.objects.all())
+    data = Testimoni.objects.filter(testimoni=id)
+    data_testi = serializers.serialize('json', data)
     data_testi = eval(data_testi)
     return Response(data_testi)
     # return HttpResponse(data_testi, content_type="application/json")
