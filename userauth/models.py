@@ -50,7 +50,4 @@ class CustomUser(AbstractUser):
 
 
 
-<<<<<<< HEAD
 
-=======
->>>>>>> a9702c188d24663cd6d0586ab7df20ac04d1552a

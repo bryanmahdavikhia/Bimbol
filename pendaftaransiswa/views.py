@@ -9,10 +9,7 @@ from django.views import View
 from userauth.models import CustomUser
 from validate_email import validate_email
 from django.contrib.auth.decorators import login_required
-<<<<<<< HEAD
-=======
 
->>>>>>> a9702c188d24663cd6d0586ab7df20ac04d1552a
 
 
 class EmailValidationView(View):

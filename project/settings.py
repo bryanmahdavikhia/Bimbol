@@ -64,11 +64,8 @@ INSTALLED_APPS = [
     'pendaftaransiswa',
     'jadwal',
     'booking',
-<<<<<<< HEAD
-=======
     'corsheaders',
     'rest_framework',
->>>>>>> a9702c188d24663cd6d0586ab7df20ac04d1552a
 ]
 
 MIDDLEWARE = [
