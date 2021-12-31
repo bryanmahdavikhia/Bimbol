@@ -53,7 +53,7 @@ def post_guru(request):
     data = json.loads(request.body)
     post_guru = BookForm()
     guruu = data['guru']
-    selesai = date(2002, 1, 6)
+    selesai = date(2023, 1, 6)
     
     post_guru = Booking.objects.create(guru=guruu, selesai=selesai)
     post_guru.save()
