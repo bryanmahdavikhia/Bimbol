@@ -75,6 +75,7 @@ def testimoni_json(request):
         testimonial = Testimoni.objects.all()
         serializer = TestimoniSerializer(testimonial, many=True)
         return Response(serializer.data)
+        
         # data = Testimoni.objects.all()
         # data_testi = serializers.serialize('json', data)
         # data_testi = eval(data_testi)
