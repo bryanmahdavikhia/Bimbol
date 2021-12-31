@@ -7,6 +7,7 @@ from .forms import BookForm
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from .models import Booking
+from datetime import date
 import json
 # Create your views here.
 
@@ -52,11 +53,9 @@ def post_guru(request):
     data = json.loads(request.body)
     post_guru = BookForm()
     guruu = data['guru']
-    selesai = "2021-12-31"
+    selesai = date(2002, 1, 6)
     
     post_guru = Booking.objects.create(guru=guruu, selesai=selesai)
     post_guru.save()
     
-    response = HttpResponse('success')
-    response.status_code = 200
-    return response
+    return JsonResponse({'msg':'Success'})
