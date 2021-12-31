@@ -72,13 +72,13 @@ def add_testi_flutter(request):
 @api_view(['GET', 'POST'])
 def testimoni_json(request):
     if request.method == 'GET':
-        # testimonial = Testimoni.objects.all()
-        # serializer = TestimoniSerializer(testimonial, many=True)
-        # return Response(serializer.data)
-        data = Testimoni.objects.all()
-        data_testi = serializers.serialize('json', data)
-        data_testi = eval(data_testi)
-        return Response(data_testi)
+        testimonial = Testimoni.objects.all()
+        serializer = TestimoniSerializer(testimonial, many=True)
+        return Response(serializer.data)
+        # data = Testimoni.objects.all()
+        # data_testi = serializers.serialize('json', data)
+        # data_testi = eval(data_testi)
+        # return Response(data_testi)
         
     elif request.method == 'POST':
         serializer = TestimoniSerializer(data=request.data)
