@@ -11,6 +11,7 @@ from django.template.loader import render_to_string
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import JadwalSerializer
+from rest_framework import status
 
 
 def is_guru(user):
@@ -30,37 +31,43 @@ def get_jadwal(request, pk):
 
 @api_view(['POST'])
 def create_jadwal(request):
-    data = request.data
-    jadwal = Jadwal.objects.create(
-        title = data["title"],
-        kelas = data["kelas"],
-        day = data["day"],
-        start = data["start"],
-        end = data["end"],
-        link = data["link"],
-        desc = data["desc"],
-        guru = CustomUser.objects.get(id=data["guru"])
-    )
-    serializer = JadwalSerializer(jadwal, many=False)
-    return Response(serializer.data)
+    try:
+        data = request.data
+        jadwal = Jadwal.objects.create(
+            title = data["title"],
+            kelas = data["kelas"],
+            day = data["day"],
+            start = data["start"],
+            end = data["end"],
+            link = data["link"],
+            desc = data["desc"],
+            guru = CustomUser.objects.get(id=data["guru"])
+        )
+        serializer = JadwalSerializer(jadwal, many=False)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    except:
+        return Response(status=status.HTTP_400_BAD_REQUEST)
 
-@api_view(['PUT'])
+@api_view(['POST'])
 def update_jadwal(request, pk):
-    data = request.data
-    jadwal = Jadwal(
-        id = pk,
-        title = data["title"],
-        kelas = data["kelas"],
-        day = data["day"],
-        start = data["start"],
-        end = data["end"],
-        link = data["link"],
-        desc = data["desc"],
-        guru = CustomUser.objects.get(id=data["guru"])
-    )
-    jadwal.save()
-    serializer = JadwalSerializer(jadwal, many=False)
-    return Response(serializer.data)
+    try:
+        data = request.data
+        jadwal = Jadwal(
+            id = pk,
+            title = data["title"],
+            kelas = data["kelas"],
+            day = data["day"],
+            start = data["start"],
+            end = data["end"],
+            link = data["link"],
+            desc = data["desc"],
+            guru = CustomUser.objects.get(id=data["guru"])
+        )
+        jadwal.save()
+        serializer = JadwalSerializer(jadwal, many=False)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    except:
+        return Response(status=status.HTTP_400_BAD_REQUEST)
 
 # def jadwal_json(request):
 #     obj = Jadwal.objects.all()
