@@ -53,6 +53,7 @@ def testimoni_create(request):
     return render(request, 'testimoni_form.html', {'form':form})
 
 # @login_required(login_url='/login')
+@api_view(['GET'])
 def testimoni_json(request):
     data = serializers.serialize('json', Testimoni.objects.all())
     return HttpResponse(data, content_type="application/json")

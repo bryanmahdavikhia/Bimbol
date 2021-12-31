@@ -8,7 +8,7 @@ router = routers.DefaultRouter(trailing_slash=False)
 # router.register('json', views.Testimoni)
 
 urlpatterns = [
-    path('json', views.Testimoni),
+    path('json', views.testimoni_json),
     path('add-testi-flutter', views.add_testi_flutter, name='add_testi_flutter'),
     url(r'^$', views.testimoni, name='testimoni_display'),
     url(r'^create/$', views.testimoni_create, name='testimoni_create'),
