@@ -2,17 +2,18 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect, render
-from django.http.response import HttpResponseRedirect, HttpResponse
+from django.http.response import HttpResponseRedirect, HttpResponse, JsonResponse
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib import messages
 from userauth.models import CustomUser
 from django.core import serializers
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
+import json
 
 from .models import Saran
 from django.http.response import HttpResponseRedirect
 from .forms import SaranForm
-
 
 def home(request):
     return render(request, 'main/home.html')
@@ -37,6 +38,18 @@ def login_request(request):
                     template_name = "main/login.html",
                     context={"form":form})
 
+@csrf_exempt
+def jsonApp(request):
+    data = json.loads(request.body)
+    username = data["username"]
+    password = data["password"]
+    CustomUser = authenticate(username=username, password=password)
+    if CustomUser is not None:
+        return JsonResponse({"session": "logged in", "username":username})
+    else:
+        return JsonResponse({"session": "not logged in"})
+
+
 @login_required(login_url='/login')
 def logout_request(request):
     logout(request)
@@ -54,7 +67,7 @@ def add_saran(request):
     return render(request, 'main/home.html', context)
 
 @login_required(login_url='/login')
-def json(request):
+def jsonSaran(request):
     modelSaran = Saran.objects.all()
     data = serializers.serialize('json', modelSaran)
     return HttpResponse(data, content_type="application/json")
