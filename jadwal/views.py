@@ -18,10 +18,16 @@ def is_guru(user):
     return user.groups.filter(name='Guru').exists()
 
 @api_view(['GET'])
-def get_jadwals(request):
-    jadwals = Jadwal.objects.all()
-    serializer = JadwalSerializer(jadwals, many=True)
-    return Response(serializer.data)
+def get_jadwals(request,username):
+    try:
+        user = CustomUser.objects.get(username=username)
+        if is_guru(user):
+            jadwals = Jadwal.objects.all().filter(guru=user)
+            serializer = JadwalSerializer(jadwals, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(status=status.HTTP_400_BAD_REQUEST)
+    except:
+        return Response(status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET'])
 def get_jadwal(request, pk):
@@ -41,7 +47,7 @@ def create_jadwal(request):
             end = data["end"],
             link = data["link"],
             desc = data["desc"],
-            guru = CustomUser.objects.get(id=data["guru"])
+            guru = CustomUser.objects.get(username=data["guru"])
         )
         serializer = JadwalSerializer(jadwal, many=False)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -61,7 +67,7 @@ def update_jadwal(request, pk):
             end = data["end"],
             link = data["link"],
             desc = data["desc"],
-            guru = CustomUser.objects.get(id=data["guru"])
+            guru = CustomUser.objects.get(username=data["guru"])
         )
         jadwal.save()
         serializer = JadwalSerializer(jadwal, many=False)
