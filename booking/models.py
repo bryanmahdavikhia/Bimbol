@@ -5,5 +5,6 @@ from django.utils import timezone
 # Create your models here.
 
 class Booking(models.Model):
+    
     guru = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     selesai = models.DateField(blank=True, null=True)
