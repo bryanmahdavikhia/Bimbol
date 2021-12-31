@@ -5,6 +5,7 @@ from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
+from rest_framework import status
 import json
 from .serializers import TestimoniSerializer
 from rest_framework import viewsets
@@ -54,26 +55,56 @@ def testimoni_create(request):
 
 @api_view(['POST'])
 def add_testi_flutter(request):
-    data = request.data
-    testi = Testimoni.objects.create(
-        nama = data['nama'],
-        kelas = data['kelas'],
-        testimoni = data['testimoni']
-    )
-    serializer = TestimoniSerializer(testi, many=False)
-    return Response(serializer.data)
+    serializer = TestimoniSerializer(data=request.data)
+    # data = request.data
+    # testi = Testimoni.objects.create(
+    #     nama = data['nama'],
+    #     kelas = data['kelas'],
+    #     testimoni = data['testimoni']
+    # )
+    # return Response(serializer.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 # @login_required(login_url='/login')
-@api_view(['GET'])
+@api_view(['GET', 'POST'])
 def testimoni_json(request):
-    data = Testimoni.objects.all()
-    data_testi = serializers.serialize('json', data)
-    data_testi = eval(data_testi)
-    return Response(data_testi)
+    if request.method == 'GET':
+        testimonial = Testimoni.objects.all()
+        serializer = TestimoniSerializer(testimonial, many=True)
+        return Response(serializer.data)
+        # data = Testimoni.objects.all()
+        # data_testi = serializers.serialize('json', data)
+        # data_testi = eval(data_testi)
+        # return Response(data_testi)
+        
+    elif request.method == 'POST':
+        serializer = TestimoniSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+@api_view(['GET', 'PUT', 'DELETE'])
+def testi_detail(request, pk):
+    try:
+        testi = Testimoni.objects.get(pk=pk)
+    except Testimoni.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
 
+    if request.method == 'GET':
+        serializer = TestimoniSerializer(testi)
+        return Response(serializer.data)
 
+    elif request.method == 'PUT':
+        serializer = TestimoniSerializer(testi, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
-
-
+    elif request.method == 'DELETE':
+        testi.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
