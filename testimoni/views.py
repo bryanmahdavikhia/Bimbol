@@ -74,6 +74,7 @@ def add_testi_flutter(request):
     else:
         return JsonResponse({"status": "error"}, status = 401)
 
+@api_view(['GET'])
 class Testimoni(viewsets.ModelViewSet):
     queryset = Testimoni.objects.all()
     serializer_class = TestimoniSerializer
