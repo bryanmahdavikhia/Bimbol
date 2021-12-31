@@ -46,3 +46,17 @@ def get_guru(request):
         })
     list_guru = json.dumps(list_guru)
     return HttpResponse(list_guru, content_type='application/json')
+
+@csrf_exempt
+def post_guru(request):
+    data = json.loads(request.body)
+    post_guru = BookForm()
+    guruu = data['guru']
+    selesai = "2021-12-31"
+    
+    post_guru = Booking.objects.create(guru=guruu, selesai=selesai)
+    post_guru.save()
+    
+    response = HttpResponse('success')
+    response.status_code = 200
+    return response
