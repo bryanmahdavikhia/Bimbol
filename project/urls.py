@@ -27,4 +27,5 @@ urlpatterns = [
     path('pendaftaransiswa/', include('pendaftaransiswa.urls')),
     path('jadwal/', include('jadwal.urls')),
     path('booking/', include('booking.urls')),
+    path('auth/', include('authentication.urls')),
 ]
