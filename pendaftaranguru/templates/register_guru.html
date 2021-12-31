@@ -1,12 +1,14 @@
-{% extends 'base.html' %}
+{% extends 'base-forum.html' %}
+
+{% load static %}
 
 {% block content %}	
 
 <div class="container">
+  <h1 class="title"> Registration Teacher </h1>
   <div class="shadow p-4 mb-5 bg-body rounded"> 
-  <h1>Pendaftaran Guru</h1>
 <form method="POST" id = "registrationform"> 
-  {% csrf_token %}
+{% csrf_token %}
   <div class="form-group">
     {{registerform.username.label_tag}}
     {{registerform.username}}
@@ -117,45 +119,54 @@
   <br>
 
   <div class="form-group">
-    {{registerform.foto_guru.label_tag}}
-    {{registerform.foto_guru}}
-  </div>
-  <br>
-
-  <div class="form-group">
     {{registerform.agree.label_tag}}
     {{registerform.agree}}
   </div>
 
   <br>
-  <button class="btn btn-primary" type="submit" >Submit</button>
+  <button class="btn-primary" type="submit" >Submit</button>
 </form>
-<script
-        src="https://code.jquery.com/jquery-3.5.0.min.js"
-        integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
-        crossorigin="anonymous"></script>
+</div>
+</div>
+{% endblock %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script>
 
 <script>
-  const form = document.getElementById('registrationform');
-  form.addEventListener("submit", submitHandler);
-
-  function submitHandler(e){
+  var form = document.getElementsByTagName("form");
+  $("#registrationform").submit(function (e) {
     e.preventDefault();
-    $.ajax({
-      type: 'POST',
-      url: "",
-      data: $("#registrationform").serialize(),
-      dataType: 'json',
-      success: function(msg){
-        if (msg.msg === 'success'){
-          alert('Form is submitted');
-          window.location = '{%url "homeguru"%}';
-        }
+    console.log(e);
+
+    function validator() {
+      if (
+        $("#registrationform").val() === "" 
+      ) {
+        Swal.fire({
+          type: "warning",
+          title: "aduh...",
+          text: "ISI!",
+        });
+        return true;
+      
       }
-    })
+    }
+
+    if (validator()) {
+      return;
+    } 
+    else {
+      $.ajax({
+        url: "",
+        type: "POST",
+        data: $("#registrationform").serialize(),
+        success: function (response) {
+          Swal.fire({
+            type: "success",
+            title: "BERHASILLLLL!",
+            text: "YEY!"
+          });
+        },
+      });
+    }
   }
 </script>
-</div>
-</div>
-
-{% endblock content %}
