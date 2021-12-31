@@ -60,7 +60,7 @@ def add_testi_flutter(request):
         kelas = data['kelas'],
         testimoni = data['testimoni']
     )
-    serializer = TestimoniSerializer(testi)
+    serializer = TestimoniSerializer(testi, many=False)
     return Response(serializer.data)
 
 # @login_required(login_url='/login')
@@ -70,35 +70,8 @@ def testimoni_json(request):
     data_testi = serializers.serialize('json', data)
     data_testi = eval(data_testi)
     return Response(data_testi)
-    # return HttpResponse(data_testi, content_type="application/json")
 
-# @api_view(['GET'])
-# def testimoni_json(request, id):
-#     data_testi = serializers.serialize('json', Testimoni.objects.filter(testi=id)).replace('null', 'None')
-     
-#     return Response(data_testi)
 
-# @csrf_exempt
-# def add_testi_flutter(request):
-#     if request.method == 'POST':
-#         data = json.loads(request.body)
-        
-#         nama = data["nama"]
-
-#         kelas = data["kelas"]
-
-#         testimoni = data["testimoni"]
-
-#         testi_form = Testimoni(nama=nama, kelas=kelas, testimoni=testimoni)
-#         testi_form.save()
-#         return JsonResponse({"status": "success"}, status = 200)
-#     else:
-#         return JsonResponse({"status": "error"}, status = 401)
-
-# @api_view(['GET'])
-# class testimoni_json(viewsets.ModelViewSet):
-#     queryset = Testimoni.objects.all()
-#     serializer_class = TestimoniSerializer
 
 
 
