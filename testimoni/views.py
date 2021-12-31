@@ -7,16 +7,14 @@ from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
 import json
 from .serializers import TestimoniSerializer
-from rest_framework import views, viewsets
+from rest_framework import viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-
-from testimoni import models
 
 # Create your views here.
 
 def testimoni(request):
-    testimonial = models.Testimoni.objects.all()
+    testimonial = Testimoni.objects.all()
     response = {'testimonial': testimonial}
     return render(request, 'testimoni_display.html', response)
 
@@ -54,33 +52,52 @@ def testimoni_create(request):
     form = TestimoniForm
     return render(request, 'testimoni_form.html', {'form':form})
 
+@api_view(['POST'])
+def add_testi_flutter(request):
+    data = request.data
+    testi = Testimoni.objects.create(
+        nama = data['nama'],
+        kelas = data['kelas'],
+        testimoni = data['testimoni']
+    )
+    serializer = TestimoniSerializer(testi)
+    return Response(serializer.data)
+
 # @login_required(login_url='/login')
 @api_view(['GET'])
 def testimoni_json(request):
-    data = serializers.serialize('json', Testimoni.objects.all())
-    return HttpResponse(data, content_type="application/json")
+    data_testi = serializers.serialize('json', Testimoni.objects.all())
+    data_testi = eval(data_testi)
+    return Response(data_testi)
+    # return HttpResponse(data_testi, content_type="application/json")
 
-@csrf_exempt
-def add_testi_flutter(request):
-    if request.method == 'POST':
-        data = json.loads(request.body)
+# @api_view(['GET'])
+# def testimoni_json(request, id):
+#     data_testi = serializers.serialize('json', Testimoni.objects.filter(testi=id)).replace('null', 'None')
+     
+#     return Response(data_testi)
+
+# @csrf_exempt
+# def add_testi_flutter(request):
+#     if request.method == 'POST':
+#         data = json.loads(request.body)
         
-        nama = data["nama"]
+#         nama = data["nama"]
 
-        kelas = data["kelas"]
+#         kelas = data["kelas"]
 
-        testimoni = data["testimoni"]
+#         testimoni = data["testimoni"]
 
-        testi_form = Testimoni(nama=nama, kelas=kelas, testimoni=testimoni)
-        testi_form.save()
-        return JsonResponse({"status": "success"}, status = 200)
-    else:
-        return JsonResponse({"status": "error"}, status = 401)
+#         testi_form = Testimoni(nama=nama, kelas=kelas, testimoni=testimoni)
+#         testi_form.save()
+#         return JsonResponse({"status": "success"}, status = 200)
+#     else:
+#         return JsonResponse({"status": "error"}, status = 401)
 
-@api_view(['GET'])
-class Testimoni(viewsets.ModelViewSet):
-    queryset = Testimoni.objects.all()
-    serializer_class = TestimoniSerializer
+# @api_view(['GET'])
+# class testimoni_json(viewsets.ModelViewSet):
+#     queryset = Testimoni.objects.all()
+#     serializer_class = TestimoniSerializer
 
 
 
