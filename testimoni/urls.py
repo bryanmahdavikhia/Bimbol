@@ -5,10 +5,10 @@ from testimoni import views
 from rest_framework import routers
 
 router = routers.DefaultRouter(trailing_slash=False)
-router.register('json', views.Testimoni)
+# router.register('json', views.Testimoni)
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('json', views.Testimoni),
     path('add-testi-flutter', views.add_testi_flutter, name='add_testi_flutter'),
     url(r'^$', views.testimoni, name='testimoni_display'),
     url(r'^create/$', views.testimoni_create, name='testimoni_create'),
