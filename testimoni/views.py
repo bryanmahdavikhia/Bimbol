@@ -7,14 +7,16 @@ from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
 import json
 from .serializers import TestimoniSerializer
-from rest_framework import viewsets
+from rest_framework import views, viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+
+from testimoni import models
 
 # Create your views here.
 
 def testimoni(request):
-    testimonial = Testimoni.objects.all()
+    testimonial = models.Testimoni.objects.all()
     response = {'testimonial': testimonial}
     return render(request, 'testimoni_display.html', response)
 
