@@ -14,6 +14,10 @@ def signup_siswa(request) :
     if form.is_valid():
         print("kesini ga")
         user = form.save()
+
+        group = Group.objects.get(name='Siswa')
+        account.groups.add(group)
+        
         login(request, user)
         return JsonResponse({
             "status": True,
