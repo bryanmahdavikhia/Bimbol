@@ -6,6 +6,10 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
 import json
+from .serializers import TestimoniSerializer
+from rest_framework import viewsets
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
 # Create your views here.
 
@@ -14,7 +18,7 @@ def testimoni(request):
     response = {'testimonial': testimonial}
     return render(request, 'testimoni_display.html', response)
 
-@login_required(login_url='/login')
+# @login_required(login_url='/login')
 def testimoni_update(request, pk):
 	context ={}
 	obj = get_object_or_404(Testimoni, pk = pk)
@@ -28,7 +32,7 @@ def testimoni_update(request, pk):
 
 	return render(request, "testimoni_form.html", context)
 
-@login_required(login_url='/login')
+# @login_required(login_url='/login')
 def testimoni_delete(request, pk):
     
     if request.is_ajax():
@@ -69,6 +73,10 @@ def add_testi_flutter(request):
         return JsonResponse({"status": "success"}, status = 200)
     else:
         return JsonResponse({"status": "error"}, status = 401)
+
+class Testimoni(viewsets.ModelViewSet):
+    queryset = Testimoni.objects.all()
+    serializer_class = TestimoniSerializer
 
 
 

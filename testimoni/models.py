@@ -19,5 +19,8 @@ class Testimoni(models.Model):
 
     testimoni = models.TextField()
 
+    class Meta:
+        db_table = "testimoni"
+
 
 
