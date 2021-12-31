@@ -43,7 +43,7 @@ HEROKU_APP_NAME = os.getenv('HEROKU_APP_NAME', '')
 ALLOWED_HOSTS = [f'{HEROKU_APP_NAME}.herokuapp.com']
 
 if not PRODUCTION:
-    ALLOWED_HOSTS += ['.localhost', '127.0.0.1', '[::1]']
+    ALLOWED_HOSTS += ['.localhost', '127.0.0.1', '[::1]', '10.0.2.2']
 
 
 # Application definition
@@ -65,6 +65,9 @@ INSTALLED_APPS = [
     'pendaftaransiswa',
     'jadwal',
     'booking',
+    'authentication',
+    'corsheaders',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -77,6 +80,18 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+<<<<<<< HEAD
+=======
+    'django.middleware.common.CommonMiddleware',
+]
+
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_HEADERS = ["*"]
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_METHODS = [
+    'GET',
+    'POST',
+>>>>>>> 919197c4d02ee74392a4beaa937c5533618f4a48
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -192,3 +207,6 @@ for directory in [*STATICFILES_DIRS, STATIC_ROOT]:
 # Enable compression and caching features of whitenoise.
 # You can remove this if it causes problems on your setup.
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+LOGIN_REDIRECT_URL = '/pendaftaransiswa/home/'
+LOGIN_URL = '/login'

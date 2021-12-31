@@ -7,7 +7,10 @@ import json
 from django.http import JsonResponse
 from django.views import View
 from userauth.models import CustomUser
-from django.core.validators import validate_email
+from validate_email import validate_email
+from django.contrib.auth.decorators import login_required
+
+
 
 class EmailValidationView(View):
 	def post(self, request):
@@ -56,6 +59,7 @@ def register_siswa(request):
 	# return render(request, 'index_siswa.html', context)
 	return render(request, 'registration.html', context)
 
+@login_required(login_url='/login')
 def home(request):
 	return render(request, 'home_siswa.html', {})
 
