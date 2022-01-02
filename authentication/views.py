@@ -12,13 +12,9 @@ def signup_siswa(request) :
     form = RegisterFormSiswa(json.loads(request.body))
     if form.is_valid():
         user = form.save()
-
-        username = form.cleaned_data.get('username').lower()
-        raw_password = form.cleaned_data.get('password1')
-        account = authenticate(username=username, password=raw_password)
-
+       
         group = Group.objects.get(name='Siswa')
-        account.groups.add(group)
+        user.groups.add(group)
         
         login(request, user)
         return JsonResponse({
